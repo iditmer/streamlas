@@ -61,6 +61,7 @@ namespace tests
         internal static readonly List<ErrorFileInfo> ErrorFiles;
         internal static readonly List<BaseFileInfo> BaseFiles;
         internal static readonly Dictionary<byte, List<PointInfo>> BaseFilePoints;
+        internal static readonly string WritePath;
 
         internal static List<ErrorFileInfo> GetErrorFileInfo(string data_dir, string json_file)
         {
@@ -104,6 +105,8 @@ namespace tests
                 string point_file = data_dir + string.Format("PointFormat_{0:00}.json", pfmt);
                 BaseFilePoints.Add(pfmt, GetPointInfo(point_file));
             }
+
+            WritePath = "../../../Data/Writing/";
         }
     }
 }
