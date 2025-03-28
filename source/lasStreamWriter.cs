@@ -23,6 +23,7 @@ namespace streamlas
 
             for (int i = 0; i < 4; i++) writer.Write((byte)0);
             writer.Write(point.format);
+            writer.Write(lasConstants.PointSize[point.format]);
         }
 
         public void Dispose() { writer.Dispose(); }
