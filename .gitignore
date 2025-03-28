@@ -1,0 +1,7 @@
+.vs/*
+
+source/bin/*
+source/obj/*
+
+tests/bin/*
+tests/obj/*
