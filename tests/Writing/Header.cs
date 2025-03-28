@@ -67,5 +67,22 @@ namespace Writing
                 }
             }
         }
+
+        [TestMethod]
+        public void PointSize()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                UInt16[] PointSize = { 20, 28, 26, 34, 57, 63, 30, 36, 38, 59, 67 };
+
+                string test_path = Utility.WritePath(file);
+                using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
+                {
+                    r.ReadBytes(94);
+                    Assert.AreEqual(PointSize[file.PointFormat], r.ReadUInt16());
+                    Assert.AreEqual(PointSize[file.PointFormat], r.ReadUInt32());
+                }
+            }
+        }
     }
 }
