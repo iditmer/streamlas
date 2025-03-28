@@ -13,7 +13,7 @@ namespace streamlas
         internal byte format;
         private double[] scale;
         private double[] offset;
-        private byte[] raw_data;
+        internal byte[] raw_data;
 
         private PointBase point_base;
         private PointBlockLegacy point_block_legacy;

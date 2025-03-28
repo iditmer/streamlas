@@ -7,9 +7,13 @@ namespace streamlas
     public class lasStreamWriter : IDisposable
     {
         internal BinaryWriter writer;
+        private UInt64 count = 0;
+        private byte point_format;
 
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
+            point_format = point.format;
+
             writer = new BinaryWriter(File.Create(path));
             writer.Write(Encoding.ASCII.GetBytes("LASF"));            
             
@@ -24,8 +28,30 @@ namespace streamlas
             for (int i = 0; i < 4; i++) writer.Write((byte)0);
             writer.Write(point.format);
             writer.Write(lasConstants.PointSize[point.format]);
+
+            while (writer.BaseStream.Position < lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
         }
 
-        public void Dispose() { writer.Dispose(); }
+        public void WritePoint(lasPointRecord point)
+        {
+            writer.Write(point.raw_data);
+            count++;
+        }
+
+        public void Dispose() 
+        {
+            if (point_format < 6)
+            {
+                writer.BaseStream.Position = 107;
+                writer.Write((uint)count);
+            }
+            else
+            {
+                writer.BaseStream.Position = 247;
+                writer.Write(count);
+            }
+
+            writer.Dispose(); 
+        }
     }
 }
