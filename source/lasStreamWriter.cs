@@ -9,10 +9,12 @@ namespace streamlas
         internal BinaryWriter writer;
         private UInt64 count = 0;
         private byte point_format;
+        private byte version_minor;
 
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
             point_format = point.format;
+            version_minor = reader.VersionMinor;
 
             writer = new BinaryWriter(File.Create(path));
             writer.Write(Encoding.ASCII.GetBytes("LASF"));            
@@ -45,7 +47,8 @@ namespace streamlas
                 writer.BaseStream.Position = 107;
                 writer.Write((uint)count);
             }
-            else
+            
+            if (version_minor > 3)
             {
                 writer.BaseStream.Position = 247;
                 writer.Write(count);
