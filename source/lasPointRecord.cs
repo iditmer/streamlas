@@ -10,7 +10,7 @@ namespace streamlas
 
     public class lasPointRecord : IDisposable
     {
-        private byte format;
+        internal byte format;
         private double[] scale;
         private double[] offset;
         private byte[] raw_data;
