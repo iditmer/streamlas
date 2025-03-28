@@ -2,6 +2,7 @@
 using System.IO;
 using streamlas;
 using tests;
+using System;
 
 namespace Writing
 {
@@ -46,6 +47,23 @@ namespace Writing
                 {
                     r.ReadBytes(104);
                     Assert.AreEqual(file.PointFormat, r.ReadByte());
+                }
+            }
+        }
+
+        [TestMethod]
+        public void HeaderSizeAndOffset()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                UInt16[] HeaderSize = { 227, 227, 235, 375 };
+
+                string test_path = Utility.WritePath(file);
+                using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
+                {
+                    r.ReadBytes(94);
+                    Assert.AreEqual(HeaderSize[file.VersionMinor - 1], r.ReadUInt16());
+                    Assert.AreEqual(HeaderSize[file.VersionMinor - 1], r.ReadUInt32());
                 }
             }
         }
