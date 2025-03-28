@@ -35,5 +35,19 @@ namespace Writing
                 }
             }
         }
+
+        [TestMethod]
+        public void PointFormat()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                string test_path = Utility.WritePath(file);
+                using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
+                {
+                    r.ReadBytes(104);
+                    Assert.AreEqual(file.PointFormat, r.ReadByte());
+                }
+            }
+        }
     }
 }
