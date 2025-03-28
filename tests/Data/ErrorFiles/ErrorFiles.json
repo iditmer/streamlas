@@ -1,0 +1,170 @@
+[
+  {
+    "FileName": "IncorrectFileSignature.las",
+    "ErrorType": "WrongFileSignature"
+  },
+  {
+    "FileName": "LAS_11_Unsupported_PF.las",
+    "ErrorType": "UnsupportedPointFormat"
+  },
+  {
+    "FileName": "LAS_12_Unsupported_PF.las",
+    "ErrorType": "UnsupportedPointFormat"
+  },
+  {
+    "FileName": "LAS_13_Unsupported_PF.las",
+    "ErrorType": "UnsupportedPointFormat"
+  },
+  {
+    "FileName": "LAS_14_Unsupported_PF.las",
+    "ErrorType": "UnsupportedPointFormat"
+  },
+  {
+    "FileName": "LAS_01.las",
+    "ErrorType": "UnsupportedVersion"
+  },
+  {
+    "FileName": "LAS_10.las",
+    "ErrorType": "UnsupportedVersion"
+  },
+  {
+    "FileName": "LAS_15.las",
+    "ErrorType": "UnsupportedVersion"
+  },
+  {
+    "FileName": "LAS_20.las",
+    "ErrorType": "UnsupportedVersion"
+  },
+  {
+    "FileName": "LAS_12_Bad_Length.las",
+    "ErrorType": "BadFileLength"
+  },
+  {
+    "FileName": "LAS_14_Bad_Length.las",
+    "ErrorType": "BadFileLength"
+  },
+  {
+    "FileName": "LAS_11_BadHeaderSize.las",
+    "ErrorType": "IncorrectHeaderSize"
+  },
+  {
+    "FileName": "LAS_12_BadHeaderSize.las",
+    "ErrorType": "IncorrectHeaderSize"
+  },
+  {
+    "FileName": "LAS_13_BadHeaderSize.las",
+    "ErrorType": "IncorrectHeaderSize"
+  },
+  {
+    "FileName": "LAS_14_BadHeaderSize.las",
+    "ErrorType": "IncorrectHeaderSize"
+  },
+  {
+    "FileName": "LAS_14_PF_00_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_01_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_02_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_03_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_04_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_05_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_06_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_07_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_08_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_09_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_14_PF_10_BadPtSize.las",
+    "ErrorType": "IncorrectPointSize"
+  },
+  {
+    "FileName": "LAS_11_PF_00_BadOffsetToPoints.las",
+    "ErrorType": "BadOffsetToPoints"
+  },
+  {
+    "FileName": "LAS_12_PF_00_BadOffsetToPoints.las",
+    "ErrorType": "BadOffsetToPoints"
+  },
+  {
+    "FileName": "LAS_13_PF_00_BadOffsetToPoints.las",
+    "ErrorType": "BadOffsetToPoints"
+  },
+  {
+    "FileName": "LAS_14_PF_00_BadOffsetToPoints.las",
+    "ErrorType": "BadOffsetToPoints"
+  },
+  {
+    "FileName": "LAS_14_PointCountMismatch.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_ReturnCountMismatch_01.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_ReturnCountMismatch_02.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_ReturnCountMismatch_03.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_ReturnCountMismatch_04.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_ReturnCountMismatch_05.las",
+    "ErrorType": "InconsistentPointCount"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyCount.las",
+    "ErrorType": "ImproperLegacyUse"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyReturn_01.las",
+    "ErrorType": "ImproperLegacyUse"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyReturn_02.las",
+    "ErrorType": "ImproperLegacyUse"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyReturn_03.las",
+    "ErrorType": "ImproperLegacyUse"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyReturn_04.las",
+    "ErrorType": "ImproperLegacyUse"
+  },
+  {
+    "FileName": "LAS_14_PF_06_LegacyReturn_05.las",
+    "ErrorType": "ImproperLegacyUse"
+  }
+]
