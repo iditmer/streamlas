@@ -83,5 +83,24 @@ namespace Writing
                 }
             }
         }
+
+        [TestMethod]
+        public void PointCounts()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                string test_path = Utility.WritePath(file);
+                using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
+                {
+                    r.ReadBytes(107);
+                    if (file.PointFormat < 6) Assert.AreEqual(file.PointCount, r.ReadUInt32());
+                    else
+                    {
+                        r.ReadBytes(140);
+                        Assert.AreEqual(file.PointCount, r.ReadUInt64());
+                    }
+                }
+            }
+        }
     }
 }
