@@ -11,7 +11,10 @@ namespace streamlas
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
             writer = new BinaryWriter(File.Create(path));
-            writer.Write(Encoding.ASCII.GetBytes("LASF"));
+            writer.Write(Encoding.ASCII.GetBytes("LASF"));            
+            for (int i = 0; i < 20; i++) writer.Write((byte)0);
+            writer.Write((byte)1);
+            writer.Write(reader.VersionMinor);
         }
 
         public void Dispose() { writer.Dispose(); }
