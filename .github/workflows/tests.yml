@@ -1,0 +1,60 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --results-directory ./TestResults --collect:"XPlat Code Coverage;Format=opencover,cobertura" --no-build --verbosity normal
+
+    - name: Copy Opencover Coverage for Badge
+      run: cp TestResults/**/coverage.opencover.xml coverage.opencover.xml
+    
+    - name: Copy Cobertura Coverage for Summary
+      run: cp TestResults/**/coverage.cobertura.xml coverage.cobertura.xml
+    
+    - name: Create Test Coverage Badge
+      uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+      with:
+        label: Test Coverage
+        color: deepskyblue
+        path: coverage.opencover.xml
+        gist-filename: streamlas-coverage.json
+        gist-id: b0b46214c3836cf68a8769326ced3b42
+        gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }} 
+
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.2.0
+      with:
+        filename: coverage.cobertura.xml
+        badge: true
+        fail_below_min: false
+        format: markdown
+        hide_branch_rate: false
+        hide_complexity: true
+        indicators: true
+        output: both
+        
+    - name: Add Coverage PR Comment
+      uses: marocchino/sticky-pull-request-comment@v2
+      if: github.event_name == 'pull_request'
+      with:
+        recreate: true
+        path: code-coverage-results.md
