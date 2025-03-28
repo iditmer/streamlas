@@ -78,9 +78,8 @@ namespace Writing
                 string test_path = Utility.WritePath(file);
                 using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
                 {
-                    r.ReadBytes(94);
+                    r.ReadBytes(105);
                     Assert.AreEqual(PointSize[file.PointFormat], r.ReadUInt16());
-                    Assert.AreEqual(PointSize[file.PointFormat], r.ReadUInt32());
                 }
             }
         }
