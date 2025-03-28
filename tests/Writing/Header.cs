@@ -20,5 +20,20 @@ namespace Writing
                 }
             }
         }
+
+        [TestMethod]
+        public void Version()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                string test_path = Utility.WritePath(file);
+                using (BinaryReader r = new BinaryReader(File.OpenRead(test_path)))
+                {
+                    r.ReadBytes(24);
+                    Assert.AreEqual((byte)1, r.ReadByte());
+                    Assert.AreEqual(file.VersionMinor, r.ReadByte());
+                }
+            }
+        }
     }
 }
