@@ -18,7 +18,11 @@ namespace Writing
                 using (lasPointRecord pt = new lasPointRecord(lr))                
                 using (lasStreamWriter lw = new lasStreamWriter(lr, pt, Utility.WritePath(file)))
                 {
-
+                    for (ulong i = 0; i < lr.PointCount; i++)
+                    {
+                        pt.ReadFrom(lr);
+                        lw.WritePoint(pt);
+                    }
                 }
             }
         }
