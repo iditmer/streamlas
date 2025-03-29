@@ -38,6 +38,19 @@ namespace Writing
         }
 
         [TestMethod]
+        public void GeneratingSoftware()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    Assert.AreEqual("streamlas - .NET LAS IO Library", lr.GeneratingSoftware);
+                }
+            }
+        }
+
+        [TestMethod]
         public void VersionMinor()
         {
             foreach (var info in TestData.BaseFiles)
