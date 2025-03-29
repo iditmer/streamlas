@@ -61,6 +61,10 @@ namespace streamlas
             writer.Write(point.format);
             writer.Write(lasConstants.PointSize[point.format]);
 
+            for (int i = 0; i < 24; i++) writer.Write((byte)0);
+            for (int i = 0; i < 3; i++) writer.Write(reader.scale[i]);
+            for (int i = 0; i < 3; i++) writer.Write(reader.offset[i]);
+
             while (writer.BaseStream.Position != offset_to_points) writer.Write((byte)0);
         }
 
