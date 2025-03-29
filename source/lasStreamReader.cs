@@ -13,7 +13,7 @@ namespace streamlas
 
         public UInt16 FileSourceID { get; private set; }
         
-        private UInt16 global_encoding;
+        internal UInt16 global_encoding;
         public bool HasTimestamps { get { return PointFormat != 0 && PointFormat != 2; } }
         public bool AdjustedGPSTime { get { return (global_encoding & 1) == 1; } }
         public bool SyntheticReturns { get { return (global_encoding & 8) == 8; } }
