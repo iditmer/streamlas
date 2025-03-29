@@ -7,15 +7,18 @@ namespace streamlas
     public class lasStreamWriter : IDisposable
     {
         internal BinaryWriter writer;
-        private UInt64 count = 0;
         private byte point_format;
         private byte version_minor;
+        private UInt32 offset_to_points;
+
+        private UInt64 count = 0;
         private UInt64[] return_counts = new UInt64[15];
 
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
             point_format = point.format;
             version_minor = reader.VersionMinor;
+            offset_to_points = lasConstants.HeaderSize[reader.VersionMinor - 1];
 
             writer = new BinaryWriter(File.Create(path));
             WriteHeader(reader, point);
@@ -47,13 +50,13 @@ namespace streamlas
             writer.Write((UInt16)DateTime.Now.Year);
 
             writer.Write(lasConstants.HeaderSize[reader.VersionMinor - 1]);
-            writer.Write((UInt32)lasConstants.HeaderSize[reader.VersionMinor - 1]);
+            writer.Write(offset_to_points);
 
             for (int i = 0; i < 4; i++) writer.Write((byte)0);
             writer.Write(point.format);
             writer.Write(lasConstants.PointSize[point.format]);
 
-            while (writer.BaseStream.Position < lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
+            while (writer.BaseStream.Position != offset_to_points) writer.Write((byte)0);
         }
 
         public void WritePoint(lasPointRecord point)
