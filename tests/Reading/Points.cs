@@ -11,9 +11,9 @@ namespace Reading
         [TestMethod]
         public void Coordinates()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -32,9 +32,9 @@ namespace Reading
         [TestMethod]
         public void Intensity()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -51,9 +51,9 @@ namespace Reading
         [TestMethod]
         public void Returns()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -71,9 +71,9 @@ namespace Reading
         [TestMethod]
         public void Classification()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -90,9 +90,9 @@ namespace Reading
         [TestMethod]
         public void BitFlags()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -120,9 +120,9 @@ namespace Reading
         [TestMethod]
         public void ScannerChannel()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -144,9 +144,9 @@ namespace Reading
         [TestMethod]
         public void UserData()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -163,9 +163,9 @@ namespace Reading
         [TestMethod]
         public void ScanAngle()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -184,9 +184,9 @@ namespace Reading
         [TestMethod]
         public void SourceID()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -203,9 +203,9 @@ namespace Reading
         [TestMethod]
         public void Timestamps()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
