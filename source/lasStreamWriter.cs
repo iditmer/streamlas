@@ -13,6 +13,8 @@ namespace streamlas
 
         private UInt64 count = 0;
         private UInt64[] return_counts = new UInt64[15];
+        private double[] min_coords = { double.MaxValue, double.MaxValue, double.MaxValue };
+        private double[] max_coords = { double.MinValue, double.MinValue, double.MinValue };
 
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
@@ -64,16 +66,35 @@ namespace streamlas
             writer.Write(point.raw_data);
             count++;
             return_counts[point.ReturnNumber - 1]++;
+
+            min_coords[0] = (min_coords[0] < point.X) ? min_coords[0] : point.X;
+            min_coords[1] = (min_coords[1] < point.Y) ? min_coords[1] : point.Y;
+            min_coords[2] = (min_coords[2] < point.Z) ? min_coords[2] : point.Z;
+
+            max_coords[0] = (max_coords[0] > point.X) ? max_coords[0] : point.X;
+            max_coords[1] = (max_coords[1] > point.Y) ? max_coords[1] : point.Y;
+            max_coords[2] = (max_coords[2] > point.Z) ? max_coords[2] : point.Z;
         }
 
-        public void Dispose() 
+        public void Dispose()
         {
+
             if (point_format < 6)
             {
                 writer.BaseStream.Position = 107;
                 writer.Write((UInt32)count);
 
                 for (int i = 0; i < 5; i++) writer.Write((UInt32)return_counts[i]);
+            }
+
+            if (count > 0)
+            {
+                writer.BaseStream.Position = 179;
+                for (int i = 0; i < 3; i++)
+                {
+                    writer.Write(max_coords[i]);
+                    writer.Write(min_coords[i]);
+                }
             }
             
             if (version_minor > 3)
