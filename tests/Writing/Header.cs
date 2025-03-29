@@ -52,6 +52,19 @@ namespace Writing
         }
 
         [TestMethod]
+        public void SyntheticReturns()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    Assert.AreEqual(info.SyntheticReturns, lr.SyntheticReturns);
+                }
+            }
+        }
+
+        [TestMethod]
         public void PointFormat()
         {
             foreach (var info in TestData.BaseFiles)
