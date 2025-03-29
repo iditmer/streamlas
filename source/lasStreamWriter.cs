@@ -28,7 +28,10 @@ namespace streamlas
             writer.Write((byte)1);
             writer.Write(reader.VersionMinor);
 
-            for (int i = 0; i < 68; i++) writer.Write((byte)0);
+            for (int i = 0; i < 64; i++) writer.Write((byte)0);
+            writer.Write((UInt16)DateTime.Now.DayOfYear);
+            writer.Write((UInt16)DateTime.Now.Year);
+
             writer.Write(lasConstants.HeaderSize[reader.VersionMinor - 1]);
             writer.Write((UInt32)lasConstants.HeaderSize[reader.VersionMinor - 1]);
 
