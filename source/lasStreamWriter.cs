@@ -8,7 +8,10 @@ namespace streamlas
 {
     public class lasStreamWriter : IDisposable
     {
+        
         internal BinaryWriter writer;
+        internal string file_name;
+        
         private byte point_format;
         private byte version_minor;
         private UInt32 offset_to_points;
@@ -27,6 +30,7 @@ namespace streamlas
             version_minor = reader.VersionMinor;
             offset_to_points = lasConstants.HeaderSize[reader.VersionMinor - 1];
 
+            file_name = path;
             writer = new BinaryWriter(File.Create(path));
             WriteHeader(reader, point);
         }
@@ -103,6 +107,7 @@ namespace streamlas
                 if (count > UInt32.MaxValue)
                 {
                     writer.Dispose();
+                    File.Delete(file_name);
                     throw new IOException("More points than UINT32_MAX written to file;" +
                         "cannot be supported in legacy mode with Point Format " + point_format);
                 }
