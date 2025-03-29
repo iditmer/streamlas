@@ -36,7 +36,10 @@ namespace streamlas
             writer.Write((byte)1);
             writer.Write(reader.VersionMinor);
 
-            for (int i = 0; i < 64; i++) writer.Write((byte)0);
+            writer.Write(Encoding.ASCII.GetBytes(reader.SystemIdentifier));
+            while (writer.BaseStream.Position < 58) writer.Write('\0');
+
+            for (int i = 0; i < 32; i++) writer.Write((byte)0);
             writer.Write((UInt16)DateTime.Now.DayOfYear);
             writer.Write((UInt16)DateTime.Now.Year);
 
