@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace streamlas
@@ -10,6 +12,7 @@ namespace streamlas
         private byte point_format;
         private byte version_minor;
         private UInt32 offset_to_points;
+        private HashSet<UInt16> src_ids = new HashSet<ushort>();
 
         private UInt64 count = 0;
         private UInt64[] return_counts = new UInt64[15];
@@ -66,6 +69,7 @@ namespace streamlas
             writer.Write(point.raw_data);
             count++;
             return_counts[point.ReturnNumber - 1]++;
+            src_ids.Add(point.SourceID);
 
             min_coords[0] = (min_coords[0] < point.X) ? min_coords[0] : point.X;
             min_coords[1] = (min_coords[1] < point.Y) ? min_coords[1] : point.Y;
@@ -78,6 +82,12 @@ namespace streamlas
 
         public void Dispose()
         {
+
+            if (src_ids.Count == 1)
+            {
+                writer.BaseStream.Position = 4;
+                writer.Write(src_ids.First());
+            }
 
             if (point_format < 6)
             {
