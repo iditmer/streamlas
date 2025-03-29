@@ -117,6 +117,22 @@ namespace Writing
         }
 
         [TestMethod]
+        public void PointsByReturn()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    for (int i = 0; i < 15; i++)
+                    {
+                        Assert.AreEqual(info.NumberPointsByReturn[i], lr.NumberPointsByReturn[i]);
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
         public void CreationDate()
         {
             foreach (var info in TestData.BaseFiles)
