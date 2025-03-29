@@ -11,15 +11,15 @@ namespace Writing
         [TestMethod]
         public void ProjectID()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                string test_path = TestData.WriteTestPath(file);
-                using (lasStreamReader lr = new lasStreamReader(test_path))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual(file.GUID1, lr.GUID1);
-                    Assert.AreEqual(file.GUID2, lr.GUID2);
-                    Assert.AreEqual(file.GUID3, lr.GUID3);
-                    for (int i = 0; i < 8; i++) Assert.AreEqual(file.GUID4[i], lr.GUID4[i]);
+                    Assert.AreEqual(info.GUID1, lr.GUID1);
+                    Assert.AreEqual(info.GUID2, lr.GUID2);
+                    Assert.AreEqual(info.GUID3, lr.GUID3);
+                    for (int i = 0; i < 8; i++) Assert.AreEqual(info.GUID4[i], lr.GUID4[i]);
                 }
             }
         }
@@ -27,12 +27,12 @@ namespace Writing
         [TestMethod]
         public void VersionMinor()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                string test_path = TestData.WriteTestPath(file);
-                using (lasStreamReader lr = new lasStreamReader(test_path))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual(file.VersionMinor, lr.VersionMinor);
+                    Assert.AreEqual(info.VersionMinor, lr.VersionMinor);
                 }
             }
         }
@@ -40,12 +40,12 @@ namespace Writing
         [TestMethod]
         public void PointFormat()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                string test_path = TestData.WriteTestPath(file);
-                using (lasStreamReader lr = new lasStreamReader(test_path))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual(file.PointFormat, lr.PointFormat);
+                    Assert.AreEqual(info.PointFormat, lr.PointFormat);
                 }
             }
         }
@@ -53,12 +53,12 @@ namespace Writing
         [TestMethod]
         public void PointCounts()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                string test_path = TestData.WriteTestPath(file);
-                using (lasStreamReader lr = new lasStreamReader(test_path))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual(file.PointCount, lr.PointCount);
+                    Assert.AreEqual(info.PointCount, lr.PointCount);
                 }
             }
         }
@@ -66,10 +66,10 @@ namespace Writing
         [TestMethod]
         public void CreationDate()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                string test_path = TestData.WriteTestPath(file);
-                using (lasStreamReader lr = new lasStreamReader(test_path))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     Assert.AreEqual(DateTime.Now.DayOfYear, lr.FileCreationDayOfYear);
                     Assert.AreEqual(DateTime.Now.Year, lr.FileCreationYear);
