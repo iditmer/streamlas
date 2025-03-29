@@ -145,5 +145,22 @@ namespace Writing
                 }
             }
         }
+
+        [TestMethod]
+        public void CoordinateExtents()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        Assert.AreEqual(info.MinCoords[i], lr.MinimumXYZ[i]);
+                        Assert.AreEqual(info.MaxCoords[i], lr.MaximumXYZ[i]);
+                    }
+                }
+            }
+        }
     }
 }
