@@ -10,6 +10,7 @@ namespace streamlas
         private UInt64 count = 0;
         private byte point_format;
         private byte version_minor;
+        private UInt64[] return_counts = new UInt64[15];
 
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
@@ -59,6 +60,7 @@ namespace streamlas
         {
             writer.Write(point.raw_data);
             count++;
+            return_counts[point.ReturnNumber - 1]++;
         }
 
         public void Dispose() 
@@ -66,13 +68,17 @@ namespace streamlas
             if (point_format < 6)
             {
                 writer.BaseStream.Position = 107;
-                writer.Write((uint)count);
+                writer.Write((UInt32)count);
+
+                for (int i = 0; i < 5; i++) writer.Write((UInt32)return_counts[i]);
             }
             
             if (version_minor > 3)
             {
                 writer.BaseStream.Position = 247;
                 writer.Write(count);
+
+                for (int i = 0; i < 15; i++) writer.Write(return_counts[i]);
             }
 
             writer.Dispose(); 
