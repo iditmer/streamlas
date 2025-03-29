@@ -9,6 +9,19 @@ namespace Writing
     public class Header
     {
         [TestMethod]
+        public void FileSourceID()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    Assert.AreEqual(info.SourceID, lr.FileSourceID);
+                }
+            }
+        }
+
+        [TestMethod]
         public void ProjectID()
         {
             foreach (var info in TestData.BaseFiles)
