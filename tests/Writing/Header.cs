@@ -25,6 +25,19 @@ namespace Writing
         }
 
         [TestMethod]
+        public void SystemIdentifier()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    Assert.AreEqual(info.SystemIdentifier, lr.SystemIdentifier);
+                }
+            }
+        }
+
+        [TestMethod]
         public void VersionMinor()
         {
             foreach (var info in TestData.BaseFiles)
