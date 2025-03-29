@@ -156,8 +156,8 @@ namespace Reading
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Assert.AreEqual(lr.MinimumXYZ[i], info.MinCoords[i]);
-                        Assert.AreEqual(lr.MaximumXYZ[i], info.MaxCoords[i]);
+                        Assert.AreEqual(info.MinCoords[i], lr.MinimumXYZ[i]);
+                        Assert.AreEqual(info.MaxCoords[i], lr.MaximumXYZ[i]);
                     }
                 }
             }
