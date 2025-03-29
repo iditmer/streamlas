@@ -18,6 +18,8 @@ namespace Writing
                 using (lasPointRecord pt = new lasPointRecord(lr))                
                 using (lasStreamWriter lw = new lasStreamWriter(lr, pt, TestData.WriteTestPath(file)))
                 {
+                    if (lr.SystemIdentifier == "OTHER") lw.SystemIdentifier = "OTHER";
+
                     for (ulong i = 0; i < lr.PointCount; i++)
                     {
                         pt.ReadFrom(lr);

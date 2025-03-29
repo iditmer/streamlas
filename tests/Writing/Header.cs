@@ -45,7 +45,8 @@ namespace Writing
                 string in_path = TestData.WriteTestPath(info);
                 using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual(info.SystemIdentifier, lr.SystemIdentifier);
+                    if (info.SystemIdentifier == "OTHER") Assert.AreEqual(info.SystemIdentifier, lr.SystemIdentifier);
+                    else Assert.AreEqual("MODIFICATION", lr.SystemIdentifier);
                 }
             }
         }
