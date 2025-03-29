@@ -38,6 +38,20 @@ namespace Writing
         }
 
         [TestMethod]
+        public void Timestamps()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
+                {
+                    Assert.AreEqual(info.HasTimestamps, lr.HasTimestamps);
+                    Assert.AreEqual(info.AdjustedGPSTime, lr.AdjustedGPSTime);
+                }
+            }
+        }
+
+        [TestMethod]
         public void PointFormat()
         {
             foreach (var info in TestData.BaseFiles)
