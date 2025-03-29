@@ -100,9 +100,15 @@ namespace streamlas
 
             if (point_format < 6)
             {
+                if (count > UInt32.MaxValue)
+                {
+                    writer.Dispose();
+                    throw new IOException("More points than UINT32_MAX written to file;" +
+                        "cannot be supported in legacy mode with Point Format " + point_format);
+                }
+
                 writer.BaseStream.Position = 107;
                 writer.Write((UInt32)count);
-
                 for (int i = 0; i < 5; i++) writer.Write((UInt32)return_counts[i]);
             }
 
