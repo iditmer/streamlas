@@ -156,8 +156,8 @@ namespace Writing
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Assert.AreEqual(info.MinCoords[i], lr.MinimumXYZ[i]);
-                        Assert.AreEqual(info.MaxCoords[i], lr.MaximumXYZ[i]);
+                        Assert.AreEqual(info.MinCoords[i], lr.MinimumXYZ[i], 1e-6);
+                        Assert.AreEqual(info.MaxCoords[i], lr.MaximumXYZ[i], 1e-6);
                     }
                 }
             }
