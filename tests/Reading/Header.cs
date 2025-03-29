@@ -10,11 +10,11 @@ namespace Reading
         [TestMethod]
         public void FileSourceID()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.SourceID, lr.FileSourceID);
+                    Assert.AreEqual(info.SourceID, lr.FileSourceID);
                 }
             }
         }
@@ -22,14 +22,14 @@ namespace Reading
         [TestMethod]
         public void ProjectID()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.GUID1, lr.GUID1);
-                    Assert.AreEqual(file.GUID2, lr.GUID2);
-                    Assert.AreEqual(file.GUID3, lr.GUID3);
-                    for (int i = 0; i < 8; i++) Assert.AreEqual(file.GUID4[i], lr.GUID4[i]);
+                    Assert.AreEqual(info.GUID1, lr.GUID1);
+                    Assert.AreEqual(info.GUID2, lr.GUID2);
+                    Assert.AreEqual(info.GUID3, lr.GUID3);
+                    for (int i = 0; i < 8; i++) Assert.AreEqual(info.GUID4[i], lr.GUID4[i]);
                 }
             }
         }
@@ -37,11 +37,11 @@ namespace Reading
         [TestMethod]
         public void SystemIdentifier()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.SystemIdentifier, lr.SystemIdentifier);
+                    Assert.AreEqual(info.SystemIdentifier, lr.SystemIdentifier);
                 }
             }
         }
@@ -49,11 +49,11 @@ namespace Reading
         [TestMethod]
         public void GeneratingSoftware()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.GeneratingSoftware, lr.GeneratingSoftware);
+                    Assert.AreEqual(info.GeneratingSoftware, lr.GeneratingSoftware);
                 }
             }
         }
@@ -61,12 +61,12 @@ namespace Reading
         [TestMethod]
         public void CreationDate()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.FileCreationDay, lr.FileCreationDayOfYear);
-                    Assert.AreEqual(file.FileCreationYear, lr.FileCreationYear);
+                    Assert.AreEqual(info.FileCreationDay, lr.FileCreationDayOfYear);
+                    Assert.AreEqual(info.FileCreationYear, lr.FileCreationYear);
                 }
             }
         }
@@ -74,11 +74,11 @@ namespace Reading
         [TestMethod]
         public void VersionMinor()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.VersionMinor, lr.VersionMinor);
+                    Assert.AreEqual(info.VersionMinor, lr.VersionMinor);
                 }
             }
         }
@@ -86,12 +86,12 @@ namespace Reading
         [TestMethod]
         public void Timestamps()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.HasTimestamps, lr.HasTimestamps);
-                    Assert.AreEqual(file.AdjustedGPSTime, lr.AdjustedGPSTime);
+                    Assert.AreEqual(info.HasTimestamps, lr.HasTimestamps);
+                    Assert.AreEqual(info.AdjustedGPSTime, lr.AdjustedGPSTime);
                 }
             }
         }
@@ -99,11 +99,11 @@ namespace Reading
         [TestMethod]
         public void SyntheticReturns()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.SyntheticReturns, lr.SyntheticReturns);
+                    Assert.AreEqual(info.SyntheticReturns, lr.SyntheticReturns);
                 }
             }
         }
@@ -111,11 +111,11 @@ namespace Reading
         [TestMethod]
         public void PointFormat()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.PointFormat, lr.PointFormat);
+                    Assert.AreEqual(info.PointFormat, lr.PointFormat);
                 }
             }
         }
@@ -123,11 +123,11 @@ namespace Reading
         [TestMethod]
         public void PointCount()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
-                    Assert.AreEqual(file.PointCount, lr.PointCount);
+                    Assert.AreEqual(info.PointCount, lr.PointCount);
                 }
             }
         }
@@ -135,13 +135,13 @@ namespace Reading
         [TestMethod]
         public void PointsByReturn()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     for (int i = 0; i < 15; i++)
                     {
-                        Assert.AreEqual(file.NumberPointsByReturn[i], lr.NumberPointsByReturn[i]);
+                        Assert.AreEqual(info.NumberPointsByReturn[i], lr.NumberPointsByReturn[i]);
                     }
                 }
             }
@@ -150,14 +150,14 @@ namespace Reading
         [TestMethod]
         public void CoordinateExtents()
         {
-            foreach (var file in TestData.BaseFiles)
+            foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(file.FileName))
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        Assert.AreEqual(lr.MinimumXYZ[i], file.MinCoords[i]);
-                        Assert.AreEqual(lr.MaximumXYZ[i], file.MaxCoords[i]);
+                        Assert.AreEqual(lr.MinimumXYZ[i], info.MinCoords[i]);
+                        Assert.AreEqual(lr.MaximumXYZ[i], info.MaxCoords[i]);
                     }
                 }
             }
