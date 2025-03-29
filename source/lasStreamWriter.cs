@@ -19,6 +19,8 @@ namespace streamlas
         private double[] min_coords = { double.MaxValue, double.MaxValue, double.MaxValue };
         private double[] max_coords = { double.MinValue, double.MinValue, double.MinValue };
 
+        public string SystemIdentifier { get; set; } = "MODIFICATION";
+
         public lasStreamWriter(lasStreamReader reader, lasPointRecord point, string path)
         {
             point_format = point.format;
@@ -45,7 +47,7 @@ namespace streamlas
             writer.Write((byte)1);
             writer.Write(reader.VersionMinor);
 
-            writer.Write(Encoding.ASCII.GetBytes(reader.SystemIdentifier));
+            // write SYSTEM IDENTIFIER on disposal to allow changes
             while (writer.BaseStream.Position < 58) writer.Write('\0');
 
             writer.Write(Encoding.ASCII.GetBytes("streamlas - .NET LAS IO Library"));
@@ -86,12 +88,15 @@ namespace streamlas
 
         public void Dispose()
         {
-
             if (src_ids.Count == 1)
             {
                 writer.BaseStream.Position = 4;
                 writer.Write(src_ids.First());
             }
+
+            writer.BaseStream.Position = 26;
+            byte[] sys_id = Encoding.ASCII.GetBytes(SystemIdentifier);
+            for (int i = 0; i < Math.Min(sys_id.Length, 32); i++) writer.Write(sys_id[i]);
 
             if (point_format < 6)
             {
