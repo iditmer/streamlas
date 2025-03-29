@@ -16,7 +16,7 @@ namespace Writing
             {
                 using (lasStreamReader lr = new lasStreamReader(file.FileName))
                 using (lasPointRecord pt = new lasPointRecord(lr))                
-                using (lasStreamWriter lw = new lasStreamWriter(lr, pt, Utility.WritePath(file)))
+                using (lasStreamWriter lw = new lasStreamWriter(lr, pt, TestData.WriteTestPath(file)))
                 {
                     for (ulong i = 0; i < lr.PointCount; i++)
                     {
@@ -31,14 +31,6 @@ namespace Writing
         public static void ClearWriteTests(TestContext c) 
         {
             Directory.Delete(TestData.WritePath, true);
-        }
-    }
-
-    internal class Utility
-    {
-        internal static string WritePath(BaseFileInfo test_file)
-        {
-            return Path.Combine(TestData.WritePath, Path.GetFileName(test_file.FileName));
         }
     }
 }

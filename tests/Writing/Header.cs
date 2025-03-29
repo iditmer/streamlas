@@ -13,7 +13,7 @@ namespace Writing
         {
             foreach (var file in TestData.BaseFiles)
             {
-                string test_path = Utility.WritePath(file);
+                string test_path = TestData.WriteTestPath(file);
                 using (lasStreamReader lr = new lasStreamReader(test_path))
                 {
                     Assert.AreEqual(file.VersionMinor, lr.VersionMinor);
@@ -26,7 +26,7 @@ namespace Writing
         {
             foreach (var file in TestData.BaseFiles)
             {
-                string test_path = Utility.WritePath(file);
+                string test_path = TestData.WriteTestPath(file);
                 using (lasStreamReader lr = new lasStreamReader(test_path))
                 {
                     Assert.AreEqual(file.PointFormat, lr.PointFormat);
@@ -39,7 +39,7 @@ namespace Writing
         {
             foreach (var file in TestData.BaseFiles)
             {
-                string test_path = Utility.WritePath(file);
+                string test_path = TestData.WriteTestPath(file);
                 using (lasStreamReader lr = new lasStreamReader(test_path))
                 {
                     Assert.AreEqual(file.PointCount, lr.PointCount);
@@ -52,7 +52,7 @@ namespace Writing
         {
             foreach (var file in TestData.BaseFiles)
             {
-                string test_path = Utility.WritePath(file);
+                string test_path = TestData.WriteTestPath(file);
                 using (lasStreamReader lr = new lasStreamReader(test_path))
                 {
                     Assert.AreEqual(DateTime.Now.DayOfYear, lr.FileCreationDayOfYear);

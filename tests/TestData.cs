@@ -108,5 +108,10 @@ namespace tests
 
             WritePath = "../../../Data/Writing/";
         }
+
+        internal static string WriteTestPath(BaseFileInfo test_file)
+        {
+            return Path.Combine(WritePath, Path.GetFileName(test_file.FileName));
+        }
     }
 }
