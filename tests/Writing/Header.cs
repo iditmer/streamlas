@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using streamlas;
 using tests;
 
@@ -42,6 +43,20 @@ namespace Writing
                 using (lasStreamReader lr = new lasStreamReader(test_path))
                 {
                     Assert.AreEqual(file.PointCount, lr.PointCount);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void CreationDate()
+        {
+            foreach (var file in TestData.BaseFiles)
+            {
+                string test_path = Utility.WritePath(file);
+                using (lasStreamReader lr = new lasStreamReader(test_path))
+                {
+                    Assert.AreEqual(DateTime.Now.DayOfYear, lr.FileCreationDayOfYear);
+                    Assert.AreEqual(DateTime.Now.Year, lr.FileCreationYear);
                 }
             }
         }
