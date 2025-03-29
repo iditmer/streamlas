@@ -24,7 +24,13 @@ namespace streamlas
         {
             writer.Write(Encoding.ASCII.GetBytes("LASF"));
 
-            for (int i = 0; i < 20; i++) writer.Write((byte)0);
+            for (int i = 0; i < 4; i++) writer.Write((byte)0);
+
+            writer.Write(reader.GUID1);
+            writer.Write(reader.GUID2);
+            writer.Write(reader.GUID3);
+            writer.Write(reader.GUID4);
+
             writer.Write((byte)1);
             writer.Write(reader.VersionMinor);
 
