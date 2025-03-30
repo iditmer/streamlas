@@ -65,7 +65,7 @@ namespace streamlas
 
             for (int i = 0; i < 4; i++) writer.Write((byte)0);
             writer.Write(point.format);
-            writer.Write(lasConstants.PointSize[point.format]);
+            writer.Write((UInt16)point.raw_data.Length);
 
             for (int i = 0; i < 24; i++) writer.Write((byte)0);
             for (int i = 0; i < 3; i++) writer.Write(reader.scale[i]);
@@ -109,7 +109,7 @@ namespace streamlas
                     writer.Dispose();
                     File.Delete(file_name);
                     throw new IOException("More points than UINT32_MAX written to file;" +
-                        "cannot be supported in legacy mode with Point Format " + point_format);
+                        " unsupported in legacy mode using Point Format " + point_format);
                 }
 
                 writer.BaseStream.Position = 107;
