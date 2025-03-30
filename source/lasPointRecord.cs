@@ -8,12 +8,12 @@ namespace streamlas
     internal delegate double get_double();
     internal delegate void void_method();
 
-    public class lasPointRecord
+    public class lasPointRecord : IDisposable
     {
-        private byte format;
+        internal byte format;
         private double[] scale;
         private double[] offset;
-        private byte[] raw_data;
+        internal byte[] raw_data;
 
         private PointBase point_base;
         private PointBlockLegacy point_block_legacy;
@@ -176,5 +176,7 @@ namespace streamlas
             fixed (byte* b = &raw_data[16]) point_block_modern = *(PointBlockModern*)b;
             fixed (byte* b = &raw_data[time_index]) time = *(double*)b;
         }
+
+        public void Dispose() { }
     }
 }

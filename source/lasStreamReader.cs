@@ -13,7 +13,7 @@ namespace streamlas
 
         public UInt16 FileSourceID { get; private set; }
         
-        private UInt16 global_encoding;
+        internal UInt16 global_encoding;
         public bool HasTimestamps { get { return PointFormat != 0 && PointFormat != 2; } }
         public bool AdjustedGPSTime { get { return (global_encoding & 1) == 1; } }
         public bool SyntheticReturns { get { return (global_encoding & 8) == 8; } }
@@ -133,7 +133,7 @@ namespace streamlas
                 IOException ex = new IOException("Input file " + Path.GetFileName(path)
                     + " is not a properly formatted LAS file.");
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (version_major == 0 || version_major > 1 || VersionMinor == 0 || VersionMinor > 4)
@@ -141,7 +141,7 @@ namespace streamlas
                 IOException ex = new IOException("LAS v" + version_major + "." + VersionMinor +
                     " is unsupported or not yet defined.");
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (PointFormat > lasConstants.MaxPointFormat[VersionMinor - 1])
@@ -149,7 +149,7 @@ namespace streamlas
                 IOException ex = new IOException("Point format " + PointFormat +
                     " is not supported in LAS v" + version_major + "." + VersionMinor);
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (header_size != lasConstants.HeaderSize[VersionMinor - 1])
@@ -157,7 +157,7 @@ namespace streamlas
                 IOException ex = new IOException("Reported header size incorrect for LAS v" + version_major +
                     "." + VersionMinor);
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (offset_to_points < lasConstants.HeaderSize[VersionMinor - 1])
@@ -165,38 +165,43 @@ namespace streamlas
                 IOException ex = new IOException("Reported offset to points shorter than header size for LAS v" +
                     version_major + "." + VersionMinor);
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (point_size < lasConstants.PointSize[PointFormat])
             {
                 IOException ex = new IOException("Reported point record size smaller than minimum required for Point Format " + PointFormat);
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (read_result == lasStreamResult.InconsistentCounts)
             {
                 IOException ex = new IOException("Inconsistency between Point Count and Legacy Point Count Fields.");
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (read_result == lasStreamResult.ImproperLegacy)
             {
                 IOException ex = new IOException("Point Format > 5 but legacy point count fields have non-zero values.");
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
 
             if (PointCount * point_size != (UInt64)(reader.BaseStream.Length - offset_to_points))
             {
                 IOException ex = new IOException(Path.GetFileName(path) + " length is inconsistent with point size and count.");
                 ex.Data["FileName"] = Path.GetFileName(path);
-                throw ex;
+                DisposeWithException(ex);
             }
         }
 
         public void Dispose() { reader.Dispose(); }
+        private void DisposeWithException(Exception ex)
+        {
+            Dispose();
+            throw ex;
+        }
     }
 }

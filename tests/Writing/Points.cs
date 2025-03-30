@@ -3,7 +3,7 @@ using streamlas;
 using System;
 using tests;
 
-namespace Reading
+namespace Writing
 {
     [TestClass]
     public class Points
@@ -13,7 +13,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -34,7 +35,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -53,7 +55,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -73,7 +76,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -92,7 +96,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -122,7 +127,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -146,7 +152,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -165,7 +172,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -186,7 +194,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
@@ -205,7 +214,8 @@ namespace Reading
         {
             foreach (var info in TestData.BaseFiles)
             {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                string in_path = TestData.WriteTestPath(info);
+                using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
                     var ref_pts = TestData.BaseFilePoints[lr.PointFormat];
                     lasPointRecord pt = new lasPointRecord(lr);
