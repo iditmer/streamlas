@@ -4,8 +4,11 @@ using System.Runtime.InteropServices;
 namespace streamlas
 {
     [StructLayout(LayoutKind.Explicit)]
-    internal struct PointBase
+    internal unsafe struct PointBase
     {
+        [FieldOffset(0)]
+        internal fixed byte data[16];
+
         [FieldOffset(0)]
         internal int X;
 
@@ -26,8 +29,11 @@ namespace streamlas
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    internal struct PointBlockLegacy
+    internal unsafe struct PointBlockLegacy
     {
+        [FieldOffset(0)]
+        internal fixed byte data[4];
+
         [FieldOffset(0)]
         internal sbyte ScanAngleRank;
 
@@ -39,8 +45,11 @@ namespace streamlas
     }
 
     [StructLayout(LayoutKind.Explicit)]
-    internal struct PointBlockModern
+    internal unsafe struct PointBlockModern
     {
+        [FieldOffset(0)]
+        internal fixed byte data[14];
+
         [FieldOffset(0)]
         internal byte Classification;
 

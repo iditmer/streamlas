@@ -72,9 +72,20 @@ namespace streamlas
             while (writer.BaseStream.Position != lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
         }
 
-        public void WritePoint(lasPointRecord point)
+        public unsafe void WritePoint(lasPointRecord point)
         {
-            writer.Write(point.raw_data);
+            if (point.format == 0)
+            {
+                fixed (byte* b = point.point_base.data) for (int i = 0; i < 16; i++) writer.Write(b[i]);
+                fixed (byte* b = point.point_block_legacy.data) for (int i = 0; i < 4; i++) writer.Write(b[i]);
+            }
+            else if (point.format == 6)
+            {
+                fixed (byte* b = point.point_base.data) for (int i = 0; i < 16; i++) writer.Write(b[i]);
+                fixed (byte* b = point.point_block_modern.data) for (int i = 0; i < 14; i++) writer.Write(b[i]);
+            }
+            else writer.Write(point.raw_data);
+
             count++;
             return_counts[point.ReturnNumber - 1]++;
             src_ids.Add(point.SourceID);

@@ -19,9 +19,9 @@ namespace streamlas
         private double[] offset;
         internal byte[] raw_data;
 
-        private PointBase point_base;
-        private PointBlockLegacy point_block_legacy;
-        private PointBlockModern point_block_modern;
+        internal PointBase point_base;
+        internal PointBlockLegacy point_block_legacy;
+        internal PointBlockModern point_block_modern;
         void_method assign_point_block;
 
         public double X 
