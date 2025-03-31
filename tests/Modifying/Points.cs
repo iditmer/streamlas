@@ -26,6 +26,25 @@ namespace Modifying
         }
 
         [TestMethod]
+        public void Coordinates()
+        {
+            for (int i = 0; i < point_per_format.Length; i++)
+            {
+                double x = point_per_format[i].X + 1500.0;
+                double y = point_per_format[i].Y + 2750.0;
+                double z = point_per_format[i].Z + 310.0;
+
+                point_per_format[i].X = x;
+                point_per_format[i].Y = y;
+                point_per_format[i].Z = z;
+
+                Assert.AreEqual(x, point_per_format[i].X, 1e-6);
+                Assert.AreEqual(y, point_per_format[i].Y, 1e-6);
+                Assert.AreEqual(z, point_per_format[i].Z, 1e-6);
+            }
+        }
+
+        [TestMethod]
         public void Classification()
         {
             for (int i = 0; i < point_per_format.Length; i++)
