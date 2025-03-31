@@ -51,5 +51,16 @@ namespace Modifying
                 Assert.AreEqual(int_val, point_per_format[i].Intensity);
             }
         }
+
+        [TestMethod]
+        public void UserData()
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                byte ud = (byte)((i + 1) * 5);
+                point_per_format[i].UserData = ud;
+                Assert.AreEqual(ud, point_per_format[i].UserData);
+            }
+        }
     }
 }
