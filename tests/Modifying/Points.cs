@@ -53,6 +53,12 @@ namespace Modifying
                 Assert.AreEqual(kp_flag, point_per_format[i].KeypointFlag);
                 Assert.AreEqual(wh_flag, point_per_format[i].WithheldFlag);
 
+                if (i < 6)
+                {
+                    var ex = Assert.Throws<InvalidOperationException>(() => point_per_format[i].OverlapFlag(true));
+                    Assert.IsTrue(ex.Message.Contains("Overlap flag not defined for point format"));
+                }
+
                 if (i > 5)
                 {
                     bool over_flag = !point_per_format[i].OverlapFlag();
