@@ -61,6 +61,7 @@ namespace tests
         internal static readonly List<ErrorFileInfo> ErrorFiles;
         internal static readonly List<BaseFileInfo> BaseFiles;
         internal static readonly Dictionary<byte, List<PointInfo>> BaseFilePoints;
+        internal static readonly string BasePath;
         internal static readonly string WritePath;
 
         internal static List<ErrorFileInfo> GetErrorFileInfo(string data_dir, string json_file)
@@ -96,13 +97,13 @@ namespace tests
             string data_dir = "../../../Data/ErrorFiles/";
             ErrorFiles = GetErrorFileInfo(data_dir, data_dir + "ErrorFiles.json");
 
-            data_dir = "../../../Data/BaseFiles/";
-            BaseFiles = GetBaseFileInfo(data_dir, data_dir + "BaseFiles.json");
+            BasePath = "../../../Data/BaseFiles/";
+            BaseFiles = GetBaseFileInfo(BasePath, BasePath + "BaseFiles.json");
 
             BaseFilePoints = new Dictionary<byte, List<PointInfo>>();
             for (byte pfmt = 0; pfmt < 11; pfmt++)
             {
-                string point_file = data_dir + string.Format("PointFormat_{0:00}.json", pfmt);
+                string point_file = BasePath + string.Format("PointFormat_{0:00}.json", pfmt);
                 BaseFilePoints.Add(pfmt, GetPointInfo(point_file));
             }
 
