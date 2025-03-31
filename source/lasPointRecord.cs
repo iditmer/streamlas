@@ -25,7 +25,10 @@ namespace streamlas
         public double X { get { return point_base.X * scale[0] + offset[0]; } }
         public double Y { get { return point_base.Y * scale[1] + offset[1]; } }
         public double Z { get { return point_base.Z * scale[2] + offset[2]; } }
-        public ushort Intensity { get { return point_base.Intensity; } }
+        public ushort Intensity { 
+            get { return point_base.Intensity; } 
+            set { point_base.Intensity = value; }
+        }
 
         public byte ReturnNumber { get { return return_number(); } }
         get_byte return_number;
