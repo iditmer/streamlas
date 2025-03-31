@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using streamlas;
+using System;
 using System.IO;
 using tests;
 
@@ -37,6 +38,17 @@ namespace Modifying
                 point_per_format[i].Classification = (byte)((point_per_format[i].Classification + 1) % num_classes);
                 byte ref_class = (byte)((ref_points[i].Classification + 1) % num_classes);
                 Assert.AreEqual(ref_class, point_per_format[i].Classification);
+            }
+        }
+
+        [TestMethod]
+        public void Intensity()
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                UInt16 int_val = (UInt16)(UInt16.MaxValue * (i / 10.0));
+                point_per_format[i].Intensity = int_val;
+                Assert.AreEqual(int_val, point_per_format[i].Intensity);
             }
         }
     }
