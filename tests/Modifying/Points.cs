@@ -10,7 +10,6 @@ namespace Modifying
     public class Points
     {
         private lasPointRecord[] point_per_format = new lasPointRecord[11];
-        private PointInfo[] ref_points = new PointInfo[11];
 
         [TestInitialize]
         public void ReadPoints()
@@ -23,28 +22,27 @@ namespace Modifying
                     point_per_format[pfmt] = new lasPointRecord(lr);
                     point_per_format[pfmt].ReadFrom(lr);
                 }
-
-                ref_points[pfmt] = TestData.BaseFilePoints[(byte)pfmt][0];
             }
         }
 
         [TestMethod]
         public void Classification()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < point_per_format.Length; i++)
             {
                 int num_classes = 32;
                 if (i > 5) num_classes = 256;
-                point_per_format[i].Classification = (byte)((point_per_format[i].Classification + 1) % num_classes);
-                byte ref_class = (byte)((ref_points[i].Classification + 1) % num_classes);
-                Assert.AreEqual(ref_class, point_per_format[i].Classification);
+
+                byte class_val = (byte)(num_classes * (i + 1) / 10.0);
+                point_per_format[i].Classification = class_val;
+                Assert.AreEqual(class_val, point_per_format[i].Classification);
             }
         }
 
         [TestMethod]
         public void Intensity()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < point_per_format.Length; i++)
             {
                 UInt16 int_val = (UInt16)(UInt16.MaxValue * (i / 10.0));
                 point_per_format[i].Intensity = int_val;
@@ -55,7 +53,7 @@ namespace Modifying
         [TestMethod]
         public void UserData()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < point_per_format.Length; i++)
             {
                 byte ud = (byte)((i + 1) * 5);
                 point_per_format[i].UserData = ud;
@@ -66,7 +64,7 @@ namespace Modifying
         [TestMethod]
         public void PointSourceID()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < point_per_format.Length; i++)
             {
                 UInt16 src_id = (UInt16)((i + 1) * 100);
                 point_per_format[i].SourceID = src_id;
