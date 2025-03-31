@@ -25,7 +25,9 @@ namespace streamlas
         public double X { get { return point_base.X * scale[0] + offset[0]; } }
         public double Y { get { return point_base.Y * scale[1] + offset[1]; } }
         public double Z { get { return point_base.Z * scale[2] + offset[2]; } }
-        public ushort Intensity { 
+
+        public ushort Intensity 
+        { 
             get { return point_base.Intensity; } 
             set { point_base.Intensity = value; }
         }
@@ -87,10 +89,17 @@ namespace streamlas
         byte scanner_channel_legacy() { throw new InvalidOperationException("Scanner Channel field not defined for point format " + format); }
         byte scanner_channel_modern() { return (byte)((point_base.BitGroupTwo & 48) >> 4); }
 
-        public byte UserData { get { return user_data(); } }
+        public byte UserData 
+        { 
+            get { return user_data(); }
+            set { set_user_data(value); }
+        }
         get_byte user_data;
         byte user_data_legacy() {  return point_block_legacy.UserData; }    
         byte user_data_modern() { return point_block_modern.UserData; }
+        set_byte set_user_data;
+        void set_user_data_legacy(byte v) { point_block_legacy.UserData = v; }
+        void set_user_data_modren(byte v) { point_block_modern.UserData = v; }
 
         public double ScanAngle { get { return scan_angle(); } }
         get_double scan_angle;
@@ -145,6 +154,7 @@ namespace streamlas
                 time_index = 20;
 
                 set_classification = set_classification_legacy;
+                set_user_data = set_user_data_legacy;
             }
             else
             {
@@ -166,6 +176,7 @@ namespace streamlas
                 time_index = 22;
 
                 set_classification = set_classification_modern;
+                set_user_data = set_user_data_modren;
             }
         }
 
