@@ -62,5 +62,16 @@ namespace Modifying
                 Assert.AreEqual(ud, point_per_format[i].UserData);
             }
         }
+
+        [TestMethod]
+        public void PointSourceID()
+        {
+            for (int i = 0; i < 11; i++)
+            {
+                UInt16 src_id = (UInt16)((i + 1) * 100);
+                point_per_format[i].SourceID = src_id;
+                Assert.AreEqual(src_id, point_per_format[i].SourceID);
+            }
+        }
     }
 }
