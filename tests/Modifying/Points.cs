@@ -40,6 +40,29 @@ namespace Modifying
         }
 
         [TestMethod]
+        public void BitFlags()
+        {
+            for (int i = 0; i < point_per_format.Length; i++)
+            {
+                bool kp_flag = !point_per_format[i].KeypointFlag;
+                bool wh_flag = !point_per_format[i].WithheldFlag;
+
+                point_per_format[i].KeypointFlag = kp_flag;
+                point_per_format[i].WithheldFlag = wh_flag;
+
+                Assert.AreEqual(kp_flag, point_per_format[i].KeypointFlag);
+                Assert.AreEqual(wh_flag, point_per_format[i].WithheldFlag);
+
+                if (i > 5)
+                {
+                    bool over_flag = !point_per_format[i].OverlapFlag();
+                    point_per_format[i].OverlapFlag(over_flag);
+                    Assert.AreEqual(over_flag, point_per_format[i].OverlapFlag());
+                }
+            }
+        }
+
+        [TestMethod]
         public void Intensity()
         {
             for (int i = 0; i < point_per_format.Length; i++)
