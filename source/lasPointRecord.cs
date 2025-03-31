@@ -24,9 +24,21 @@ namespace streamlas
         private PointBlockModern point_block_modern;
         void_method assign_point_block;
 
-        public double X { get { return point_base.X * scale[0] + offset[0]; } }
-        public double Y { get { return point_base.Y * scale[1] + offset[1]; } }
-        public double Z { get { return point_base.Z * scale[2] + offset[2]; } }
+        public double X 
+        { 
+            get { return point_base.X * scale[0] + offset[0]; } 
+            set { point_base.X = (int)Math.Round((value - offset[0]) / scale[0]); }
+        }
+        public double Y 
+        {
+            get { return point_base.Y * scale[1] + offset[1]; }
+            set { point_base.Y = (int)Math.Round((value - offset[1]) / scale[1]); }
+        }
+        public double Z 
+        { 
+            get { return point_base.Z * scale[2] + offset[2]; }
+            set { point_base.Z = (int)Math.Round((value - offset[2]) / scale[2]); }
+        }
 
         public ushort Intensity 
         { 
