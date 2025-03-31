@@ -8,6 +8,8 @@ namespace streamlas
     internal delegate double get_double();
     internal delegate void void_method();
 
+    internal delegate void set_byte(byte v);
+
     public class lasPointRecord : IDisposable
     {
         internal byte format;
@@ -35,10 +37,17 @@ namespace streamlas
         byte number_returns_legacy() { return (byte)((point_base.BitGroupOne & 56) >> 3); }
         byte number_returns_modern() { return (byte)((point_base.BitGroupOne & 240) >> 4); }
 
-        public byte Classification { get { return classification(); } }
+        public byte Classification 
+        { 
+            get { return classification(); } 
+            set { set_classification(value); }        
+        }
         get_byte classification;
         byte classification_legacy() { return (byte)(point_base.BitGroupTwo & 31); }
         byte classification_modern() { return point_block_modern.Classification; }
+        set_byte set_classification;
+        void set_classification_legacy(byte v) { point_base.BitGroupTwo = (byte)((point_base.BitGroupTwo & 224) ^ (v & 31)); }
+        void set_classification_modern(byte v) { point_block_modern.Classification = v; }
 
         public bool SyntheticFlag { get { return synthetic(); } }
         get_bool synthetic;
@@ -131,6 +140,8 @@ namespace streamlas
                     get_time = timestamp;
                 }
                 time_index = 20;
+
+                set_classification = set_classification_legacy;
             }
             else
             {
@@ -150,6 +161,8 @@ namespace streamlas
                 assign_point_block = assign_point_block_modern;                
                 get_time = timestamp;
                 time_index = 22;
+
+                set_classification = set_classification_modern;
             }
         }
 
