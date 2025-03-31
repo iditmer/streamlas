@@ -9,6 +9,7 @@ namespace streamlas
     internal delegate void void_method();
 
     internal delegate void set_byte(byte v);
+    internal delegate void set_UInt16(UInt16 v);
 
     public class lasPointRecord : IDisposable
     {
@@ -106,10 +107,17 @@ namespace streamlas
         double scan_angle_legacy() { return point_block_legacy.ScanAngleRank; }
         double scan_angle_modern() { return point_block_modern.ScanAngle * 0.006; }
 
-        public UInt16 SourceID { get { return source_id(); } }
+        public UInt16 SourceID 
+        { 
+            get { return source_id(); }
+            set { set_source_id(value); }
+        }
         get_UInt16 source_id;
         UInt16 source_id_legacy() { return point_block_legacy.PointSourceID; }
         UInt16 source_id_modern() { return point_block_modern.PointSourceID; }
+        set_UInt16 set_source_id;
+        void set_source_id_legacy(UInt16 v) { point_block_legacy.PointSourceID = v; }
+        void set_source_id_modern(UInt16 v) { point_block_modern.PointSourceID = v; }
         
         public double Timestamp() { return get_time(); }
         private int time_index;
@@ -155,6 +163,7 @@ namespace streamlas
 
                 set_classification = set_classification_legacy;
                 set_user_data = set_user_data_legacy;
+                set_source_id = set_source_id_legacy;
             }
             else
             {
@@ -177,6 +186,7 @@ namespace streamlas
 
                 set_classification = set_classification_modern;
                 set_user_data = set_user_data_modren;
+                set_source_id = set_source_id_modern;
             }
         }
 
