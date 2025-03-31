@@ -32,8 +32,10 @@ namespace Modifying
         {
             for (int i = 0; i < 11; i++)
             {
-                point_per_format[i].Classification = (byte)((point_per_format[i].Classification + 1) % 255);
-                byte ref_class = (byte)((ref_points[i].Classification + 1) % 255);
+                int num_classes = 32;
+                if (i > 5) num_classes = 256;
+                point_per_format[i].Classification = (byte)((point_per_format[i].Classification + 1) % num_classes);
+                byte ref_class = (byte)((ref_points[i].Classification + 1) % num_classes);
                 Assert.AreEqual(ref_class, point_per_format[i].Classification);
             }
         }
