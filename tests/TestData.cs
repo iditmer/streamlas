@@ -54,6 +54,32 @@ namespace tests
         public byte UserData { get; set; }
         public Int16 ScanAngle { get; set; }
         public double Timestamp { get; set; }
+
+        public PointInfo Copy()
+        {
+            var copy = new PointInfo();
+
+            copy.X = X;
+            copy.Y = Y;
+            copy.Z = Z;
+            copy.Intensity = Intensity;
+            copy.Classification = Classification;
+            copy.Return = Return;
+            copy.NumberReturns = NumberReturns;
+            copy.SyntheticFlag = SyntheticFlag;
+            copy.KeypointFlag = KeypointFlag;
+            copy.WithheldFlag = WithheldFlag;
+            copy.OverlapFlag = OverlapFlag;
+            copy.ScanDirectionFlag = ScanDirectionFlag;
+            copy.EdgeOfFlightLineFlag = EdgeOfFlightLineFlag;
+            copy.ScannerChannel = ScannerChannel;
+            copy.SourceID = SourceID;
+            copy.UserData = UserData;
+            copy.ScanAngle = ScanAngle;
+            copy.Timestamp = Timestamp;
+
+            return copy;
+        }
     }
 
     internal static class TestData
