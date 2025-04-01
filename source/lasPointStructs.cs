@@ -7,9 +7,6 @@ namespace streamlas
     internal unsafe struct PointBase
     {
         [FieldOffset(0)]
-        internal fixed byte data[16];
-
-        [FieldOffset(0)]
         internal int X;
 
         [FieldOffset(4)]
@@ -32,9 +29,6 @@ namespace streamlas
     internal unsafe struct PointBlockLegacy
     {
         [FieldOffset(0)]
-        internal fixed byte data[4];
-
-        [FieldOffset(0)]
         internal sbyte ScanAngleRank;
 
         [FieldOffset(1)]
@@ -47,9 +41,6 @@ namespace streamlas
     [StructLayout(LayoutKind.Explicit)]
     internal unsafe struct PointBlockModern
     {
-        [FieldOffset(0)]
-        internal fixed byte data[14];
-
         [FieldOffset(0)]
         internal byte Classification;
 
