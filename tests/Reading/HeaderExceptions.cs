@@ -17,7 +17,7 @@ namespace Reading
                 {
                     IOException ex = Assert.ThrowsException<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("not a properly formatted LAS file"));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -32,7 +32,7 @@ namespace Reading
                 {
                     IOException ex = Assert.ThrowsException<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("is unsupported or not yet defined."));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace Reading
                 {
                     IOException ex = Assert.ThrowsException<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("not supported in LAS v"));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -60,7 +60,7 @@ namespace Reading
                 {
                     IOException ex = Assert.ThrowsException<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("Reported point record size smaller than minimum required for Point Format"));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -74,7 +74,7 @@ namespace Reading
                 {
                     IOException ex = Assert.Throws<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("Reported header size incorrect for LAS v"));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -88,7 +88,7 @@ namespace Reading
                 {
                     IOException ex = Assert.Throws<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("Inconsistency between Point Count and Legacy Point Count Fields."));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace Reading
                 {
                     IOException ex = Assert.Throws<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("Point Format > 5 but legacy point count fields have non-zero values."));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -116,7 +116,7 @@ namespace Reading
                 {
                     IOException ex = Assert.Throws<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("Reported offset to points shorter than header size for LAS v"));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }
@@ -130,7 +130,7 @@ namespace Reading
                 {
                     IOException ex = Assert.Throws<IOException>(() => new lasStreamReader(file.FileName));
                     Assert.IsTrue(ex.Message.Contains("length is inconsistent with point size and count."));
-                    Assert.AreEqual(ex.Data["FileName"], Path.GetFileName(file.FileName));
+                    Assert.AreEqual(Path.GetFileName(file.FileName), ex.Data["FileName"]);
                 }
             }
         }

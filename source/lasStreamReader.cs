@@ -128,73 +128,51 @@ namespace streamlas
 
         private void ValidateHeader(lasStreamResult read_result)
         {
+            IOException ex = new IOException("unused");
+
             if (read_result == lasStreamResult.BadFileSig)
             {
-                IOException ex = new IOException("Input file " + Path.GetFileName(path)
+                ex = new IOException("Input file " + Path.GetFileName(path)
                     + " is not a properly formatted LAS file.");
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
             }
-
-            if (version_major == 0 || version_major > 1 || VersionMinor == 0 || VersionMinor > 4)
+            else if (version_major == 0 || version_major > 1 || VersionMinor == 0 || VersionMinor > 4)
             {
-                IOException ex = new IOException("LAS v" + version_major + "." + VersionMinor +
+                ex = new IOException("LAS v" + version_major + "." + VersionMinor +
                     " is unsupported or not yet defined.");
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
             }
-
-            if (PointFormat > lasConstants.MaxPointFormat[VersionMinor - 1])
+            else if (PointFormat > lasConstants.MaxPointFormat[VersionMinor - 1])
             {
-                IOException ex = new IOException("Point format " + PointFormat +
+                ex = new IOException("Point format " + PointFormat +
                     " is not supported in LAS v" + version_major + "." + VersionMinor);
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
             }
-
-            if (header_size != lasConstants.HeaderSize[VersionMinor - 1])
+            else if (header_size != lasConstants.HeaderSize[VersionMinor - 1])
             {
-                IOException ex = new IOException("Reported header size incorrect for LAS v" + version_major +
-                    "." + VersionMinor);
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
+                ex = new IOException("Reported header size incorrect for LAS v" + version_major + "." + VersionMinor);
             }
-
-            if (offset_to_points < lasConstants.HeaderSize[VersionMinor - 1])
+            else if (offset_to_points < lasConstants.HeaderSize[VersionMinor - 1])
             {
-                IOException ex = new IOException("Reported offset to points shorter than header size for LAS v" +
+                ex = new IOException("Reported offset to points shorter than header size for LAS v" +
                     version_major + "." + VersionMinor);
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
+            }
+            else if (point_size < lasConstants.PointSize[PointFormat])
+            {
+                ex = new IOException("Reported point record size smaller than minimum required for Point Format " + PointFormat);
+            }
+            else if (read_result == lasStreamResult.InconsistentCounts)
+            {
+                ex = new IOException("Inconsistency between Point Count and Legacy Point Count Fields.");
+            }
+            else if (read_result == lasStreamResult.ImproperLegacy)
+            {
+                ex = new IOException("Point Format > 5 but legacy point count fields have non-zero values.");
+            }
+            else if (PointCount * point_size != (UInt64)(reader.BaseStream.Length - offset_to_points))
+            {
+                ex = new IOException(Path.GetFileName(path) + " length is inconsistent with point size and count.");
             }
 
-            if (point_size < lasConstants.PointSize[PointFormat])
-            {
-                IOException ex = new IOException("Reported point record size smaller than minimum required for Point Format " + PointFormat);
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
-            }
-
-            if (read_result == lasStreamResult.InconsistentCounts)
-            {
-                IOException ex = new IOException("Inconsistency between Point Count and Legacy Point Count Fields.");
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
-            }
-
-            if (read_result == lasStreamResult.ImproperLegacy)
-            {
-                IOException ex = new IOException("Point Format > 5 but legacy point count fields have non-zero values.");
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
-            }
-
-            if (PointCount * point_size != (UInt64)(reader.BaseStream.Length - offset_to_points))
-            {
-                IOException ex = new IOException(Path.GetFileName(path) + " length is inconsistent with point size and count.");
-                ex.Data["FileName"] = Path.GetFileName(path);
-                DisposeWithException(ex);
-            }
+            ex.Data["FileName"] = Path.GetFileName(path);
+            if (ex.Message != "unused") DisposeWithException(ex);
         }
 
         public void Dispose() { reader.Dispose(); }
