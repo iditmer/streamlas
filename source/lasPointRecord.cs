@@ -8,6 +8,10 @@ namespace streamlas
     internal delegate double get_double();
     internal delegate void void_method();
 
+    internal delegate void set_bool(bool v);
+    internal delegate void set_byte(byte v);
+    internal delegate void set_UInt16(UInt16 v);
+
     public class lasPointRecord : IDisposable
     {
         internal byte format;
@@ -15,15 +19,32 @@ namespace streamlas
         private double[] offset;
         internal byte[] raw_data;
 
-        private PointBase point_base;
-        private PointBlockLegacy point_block_legacy;
-        private PointBlockModern point_block_modern;
+        internal PointBase point_base;
+        internal PointBlockLegacy point_block_legacy;
+        internal PointBlockModern point_block_modern;
         void_method assign_point_block;
 
-        public double X { get { return point_base.X * scale[0] + offset[0]; } }
-        public double Y { get { return point_base.Y * scale[1] + offset[1]; } }
-        public double Z { get { return point_base.Z * scale[2] + offset[2]; } }
-        public ushort Intensity { get { return point_base.Intensity; } }
+        public double X 
+        { 
+            get { return point_base.X * scale[0] + offset[0]; } 
+            set { point_base.X = (int)Math.Round((value - offset[0]) / scale[0]); }
+        }
+        public double Y 
+        {
+            get { return point_base.Y * scale[1] + offset[1]; }
+            set { point_base.Y = (int)Math.Round((value - offset[1]) / scale[1]); }
+        }
+        public double Z 
+        { 
+            get { return point_base.Z * scale[2] + offset[2]; }
+            set { point_base.Z = (int)Math.Round((value - offset[2]) / scale[2]); }
+        }
+
+        public ushort Intensity 
+        { 
+            get { return point_base.Intensity; } 
+            set { point_base.Intensity = value; }
+        }
 
         public byte ReturnNumber { get { return return_number(); } }
         get_byte return_number;
@@ -35,30 +56,55 @@ namespace streamlas
         byte number_returns_legacy() { return (byte)((point_base.BitGroupOne & 56) >> 3); }
         byte number_returns_modern() { return (byte)((point_base.BitGroupOne & 240) >> 4); }
 
-        public byte Classification { get { return classification(); } }
+        public byte Classification 
+        { 
+            get { return classification(); } 
+            set { set_classification(value); }        
+        }
         get_byte classification;
         byte classification_legacy() { return (byte)(point_base.BitGroupTwo & 31); }
         byte classification_modern() { return point_block_modern.Classification; }
+        set_byte set_classification;
+        void set_classification_legacy(byte v) { point_base.BitGroupTwo = (byte)((point_base.BitGroupTwo & 224) ^ (v & 31)); }
+        void set_classification_modern(byte v) { point_block_modern.Classification = v; }
 
         public bool SyntheticFlag { get { return synthetic(); } }
         get_bool synthetic;
         bool synthetic_legacy() { return (point_base.BitGroupTwo & 32) == 32; }
         bool synthetic_modern() { return (point_base.BitGroupTwo & 1) == 1; }
 
-        public bool KeypointFlag { get { return keypoint(); } }
+        public bool KeypointFlag 
+        { 
+            get { return keypoint(); }
+            set { set_keypoint(value); }
+        }
         get_bool keypoint;
         bool keypoint_legacy() { return (point_base.BitGroupTwo & 64) == 64; }
         bool keypoint_modern() { return (point_base.BitGroupTwo & 2) == 2; }
+        set_bool set_keypoint;
+        void set_keypoint_legacy(bool v) { point_base.BitGroupTwo = (byte)(point_base.BitGroupTwo ^ 64); }
+        void set_keypoint_modern(bool v) { point_base.BitGroupTwo = (byte)(point_base.BitGroupTwo ^ 2); }
 
-        public bool WithheldFlag { get { return withheld(); } }
+        public bool WithheldFlag 
+        { 
+            get { return withheld(); }
+            set { set_withheld(value); }
+        }
         get_bool withheld;
         bool withheld_legacy() { return (point_base.BitGroupTwo & 128) == 128; }
         bool withheld_modern() { return (point_base.BitGroupTwo & 4) == 4; }
+        set_bool set_withheld;
+        void set_withheld_legacy(bool v) { point_base.BitGroupTwo = (byte)(point_base.BitGroupTwo ^ 128); }
+        void set_withheld_modern(bool v) { point_base.BitGroupTwo = (byte)(point_base.BitGroupTwo ^ 4); }
 
-        public bool OverlapFlag() {  return overlap(); } 
+        public bool OverlapFlag() {  return overlap(); }
+        public void OverlapFlag(bool v) { set_overlap(v); }
         get_bool overlap;
         bool overlap_legacy() { throw new InvalidOperationException("Overlap flag not defined for point format " + format); }
         bool overlap_modern() { return (point_base.BitGroupTwo & 8) == 8; }
+        set_bool set_overlap;
+        void set_overlap_legacy(bool v) { throw new InvalidOperationException("Overlap flag not defined for point format " + format); }
+        void set_overlap_modern(bool v) { point_base.BitGroupTwo = (byte)(point_base.BitGroupTwo ^ 8); }
 
         public bool ScanDirectionFlag { get { return scan_direction(); } }
         get_bool scan_direction;
@@ -75,20 +121,34 @@ namespace streamlas
         byte scanner_channel_legacy() { throw new InvalidOperationException("Scanner Channel field not defined for point format " + format); }
         byte scanner_channel_modern() { return (byte)((point_base.BitGroupTwo & 48) >> 4); }
 
-        public byte UserData { get { return user_data(); } }
+        public byte UserData 
+        { 
+            get { return user_data(); }
+            set { set_user_data(value); }
+        }
         get_byte user_data;
         byte user_data_legacy() {  return point_block_legacy.UserData; }    
         byte user_data_modern() { return point_block_modern.UserData; }
+        set_byte set_user_data;
+        void set_user_data_legacy(byte v) { point_block_legacy.UserData = v; }
+        void set_user_data_modren(byte v) { point_block_modern.UserData = v; }
 
         public double ScanAngle { get { return scan_angle(); } }
         get_double scan_angle;
         double scan_angle_legacy() { return point_block_legacy.ScanAngleRank; }
         double scan_angle_modern() { return point_block_modern.ScanAngle * 0.006; }
 
-        public UInt16 SourceID { get { return source_id(); } }
+        public UInt16 SourceID 
+        { 
+            get { return source_id(); }
+            set { set_source_id(value); }
+        }
         get_UInt16 source_id;
         UInt16 source_id_legacy() { return point_block_legacy.PointSourceID; }
         UInt16 source_id_modern() { return point_block_modern.PointSourceID; }
+        set_UInt16 set_source_id;
+        void set_source_id_legacy(UInt16 v) { point_block_legacy.PointSourceID = v; }
+        void set_source_id_modern(UInt16 v) { point_block_modern.PointSourceID = v; }
         
         public double Timestamp() { return get_time(); }
         private int time_index;
@@ -131,6 +191,13 @@ namespace streamlas
                     get_time = timestamp;
                 }
                 time_index = 20;
+
+                set_classification = set_classification_legacy;
+                set_user_data = set_user_data_legacy;
+                set_source_id = set_source_id_legacy;
+                set_keypoint = set_keypoint_legacy;
+                set_withheld = set_withheld_legacy;
+                set_overlap = set_overlap_legacy;
             }
             else
             {
@@ -150,6 +217,13 @@ namespace streamlas
                 assign_point_block = assign_point_block_modern;                
                 get_time = timestamp;
                 time_index = 22;
+
+                set_classification = set_classification_modern;
+                set_user_data = set_user_data_modren;
+                set_source_id = set_source_id_modern;
+                set_keypoint = set_keypoint_modern;
+                set_withheld = set_withheld_modern;
+                set_overlap = set_overlap_modern;
             }
         }
 

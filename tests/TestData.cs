@@ -54,6 +54,32 @@ namespace tests
         public byte UserData { get; set; }
         public Int16 ScanAngle { get; set; }
         public double Timestamp { get; set; }
+
+        public PointInfo Copy()
+        {
+            var copy = new PointInfo();
+
+            copy.X = X;
+            copy.Y = Y;
+            copy.Z = Z;
+            copy.Intensity = Intensity;
+            copy.Classification = Classification;
+            copy.Return = Return;
+            copy.NumberReturns = NumberReturns;
+            copy.SyntheticFlag = SyntheticFlag;
+            copy.KeypointFlag = KeypointFlag;
+            copy.WithheldFlag = WithheldFlag;
+            copy.OverlapFlag = OverlapFlag;
+            copy.ScanDirectionFlag = ScanDirectionFlag;
+            copy.EdgeOfFlightLineFlag = EdgeOfFlightLineFlag;
+            copy.ScannerChannel = ScannerChannel;
+            copy.SourceID = SourceID;
+            copy.UserData = UserData;
+            copy.ScanAngle = ScanAngle;
+            copy.Timestamp = Timestamp;
+
+            return copy;
+        }
     }
 
     internal static class TestData
@@ -61,6 +87,7 @@ namespace tests
         internal static readonly List<ErrorFileInfo> ErrorFiles;
         internal static readonly List<BaseFileInfo> BaseFiles;
         internal static readonly Dictionary<byte, List<PointInfo>> BaseFilePoints;
+        internal static readonly string BasePath;
         internal static readonly string WritePath;
 
         internal static List<ErrorFileInfo> GetErrorFileInfo(string data_dir, string json_file)
@@ -96,13 +123,13 @@ namespace tests
             string data_dir = "../../../Data/ErrorFiles/";
             ErrorFiles = GetErrorFileInfo(data_dir, data_dir + "ErrorFiles.json");
 
-            data_dir = "../../../Data/BaseFiles/";
-            BaseFiles = GetBaseFileInfo(data_dir, data_dir + "BaseFiles.json");
+            BasePath = "../../../Data/BaseFiles/";
+            BaseFiles = GetBaseFileInfo(BasePath, BasePath + "BaseFiles.json");
 
             BaseFilePoints = new Dictionary<byte, List<PointInfo>>();
             for (byte pfmt = 0; pfmt < 11; pfmt++)
             {
-                string point_file = data_dir + string.Format("PointFormat_{0:00}.json", pfmt);
+                string point_file = BasePath + string.Format("PointFormat_{0:00}.json", pfmt);
                 BaseFilePoints.Add(pfmt, GetPointInfo(point_file));
             }
 

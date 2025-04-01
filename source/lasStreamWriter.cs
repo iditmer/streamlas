@@ -6,13 +6,15 @@ using System.Text;
 
 namespace streamlas
 {
+    internal delegate void lasPointMethod(lasPointRecord p);
+
     public class lasStreamWriter : IDisposable
-    {
-        
+    {        
         internal BinaryWriter writer;
         internal string file_name;
         
         private byte point_format;
+        private int excess_point_bytes;
         private byte version_minor;
         private HashSet<UInt16> src_ids = new HashSet<ushort>();
 
@@ -27,6 +29,18 @@ namespace streamlas
         {
             point_format = point.format;
             version_minor = reader.VersionMinor;
+            if (point_format < 6)
+            {
+                write_point_block = write_point_block_legacy;
+                excess_point_bytes = point.raw_data.Length - 20;
+                if (excess_point_bytes > 0) write_point_block = write_point_block_legacy_excess;
+            }
+            else
+            {
+                write_point_block = write_point_block_modern;
+                excess_point_bytes = point.raw_data.Length - 30;
+                if (excess_point_bytes > 0) write_point_block = write_point_block_modern_excess;
+            }
 
             file_name = path;
             writer = new BinaryWriter(File.Create(path));
@@ -72,9 +86,8 @@ namespace streamlas
             while (writer.BaseStream.Position != lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
         }
 
-        public void WritePoint(lasPointRecord point)
+        public unsafe void WritePoint(lasPointRecord point)
         {
-            writer.Write(point.raw_data);
             count++;
             return_counts[point.ReturnNumber - 1]++;
             src_ids.Add(point.SourceID);
@@ -86,6 +99,50 @@ namespace streamlas
             max_coords[0] = (max_coords[0] > point.X) ? max_coords[0] : point.X;
             max_coords[1] = (max_coords[1] > point.Y) ? max_coords[1] : point.Y;
             max_coords[2] = (max_coords[2] > point.Z) ? max_coords[2] : point.Z;
+
+            writer.Write(point.point_base.X);
+            writer.Write(point.point_base.Y);
+            writer.Write(point.point_base.Z);
+            writer.Write(point.point_base.Intensity);
+            writer.Write(point.point_base.BitGroupOne);
+            writer.Write(point.point_base.BitGroupTwo);
+            write_point_block(point);
+        }
+
+        lasPointMethod write_point_block;
+
+        void write_point_block_legacy(lasPointRecord p)
+        {
+            writer.Write(p.point_block_legacy.ScanAngleRank);
+            writer.Write(p.point_block_legacy.UserData);
+            writer.Write(p.point_block_legacy.PointSourceID);
+        }
+
+        void write_point_block_legacy_excess(lasPointRecord p)
+        {
+            writer.Write(p.point_block_legacy.ScanAngleRank);
+            writer.Write(p.point_block_legacy.UserData);
+            writer.Write(p.point_block_legacy.PointSourceID);
+            for (int i = 0; i < excess_point_bytes; i++) writer.Write(p.raw_data[20 + i]);
+        }
+
+        void write_point_block_modern(lasPointRecord p)
+        {
+            writer.Write(p.point_block_modern.Classification);
+            writer.Write(p.point_block_modern.UserData);
+            writer.Write(p.point_block_modern.ScanAngle);
+            writer.Write(p.point_block_modern.PointSourceID);
+            writer.Write(p.point_block_modern.Timestamp);
+        }
+
+        void write_point_block_modern_excess(lasPointRecord p)
+        {
+            writer.Write(p.point_block_modern.Classification);
+            writer.Write(p.point_block_modern.UserData);
+            writer.Write(p.point_block_modern.ScanAngle);
+            writer.Write(p.point_block_modern.PointSourceID);
+            writer.Write(p.point_block_modern.Timestamp);
+            for (int i = 0; i < excess_point_bytes; i++) writer.Write(p.raw_data[30 + i]);
         }
 
         public void Dispose()
