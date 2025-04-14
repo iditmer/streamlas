@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Text;
 using streamlas;
 using tests;
 
@@ -59,6 +60,36 @@ namespace Reading
                     for (int i = 0; i < info.VariableLengthRecords.Length; i++)
                     {
                         Assert.AreEqual(info.VariableLengthRecords[i].Description, lr.VariableLengthRecords[i].Description);
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
+        public void RecordLength()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                {
+                    for (int i = 0; i < info.VariableLengthRecords.Length; i++)
+                    {
+                        Assert.AreEqual(info.VariableLengthRecords[i].RecordLength, lr.VariableLengthRecords[i].Data.Length);
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
+        public void RecordContent()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                {
+                    for (int i = 0; i < info.VariableLengthRecords.Length; i++)
+                    {
+                        Assert.AreEqual(info.VariableLengthRecords[i].DataString, Encoding.UTF8.GetString(lr.VariableLengthRecords[i].Data));
                     }
                 }
             }
