@@ -35,7 +35,6 @@ namespace streamlas
 
         private UInt16 header_size;
         private UInt32 offset_to_points;
-        public UInt32 NumberVariableLengthRecords { get; private set; }
 
         public byte PointFormat { get; private set; }
         internal UInt16 point_size;
@@ -47,6 +46,8 @@ namespace streamlas
 
         public double[] MinimumXYZ { get; private set; } = new double[3];
         public double[] MaximumXYZ { get; private set; } = new double[3];
+
+        public lasVariableLengthRecord[] VariableLengthRecords { get; private set; } = new lasVariableLengthRecord[1];
 
         public lasStreamReader(string las_path)
         {
@@ -79,7 +80,7 @@ namespace streamlas
 
             header_size = reader.ReadUInt16();
             offset_to_points = reader.ReadUInt32();
-            NumberVariableLengthRecords = reader.ReadUInt32();
+            VariableLengthRecords = new lasVariableLengthRecord[(int)reader.ReadUInt32()];
 
             PointFormat = reader.ReadByte();
             point_size = reader.ReadUInt16();
