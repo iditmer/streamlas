@@ -35,7 +35,8 @@ namespace streamlas
 
         private UInt16 header_size;
         private UInt32 offset_to_points;
-                
+        public UInt32 NumberVariableLengthRecords { get; private set; }
+
         public byte PointFormat { get; private set; }
         internal UInt16 point_size;
         public UInt64 PointCount { get; private set; }
@@ -78,7 +79,7 @@ namespace streamlas
 
             header_size = reader.ReadUInt16();
             offset_to_points = reader.ReadUInt32();
-            reader.ReadBytes(4);
+            NumberVariableLengthRecords = reader.ReadUInt32();
 
             PointFormat = reader.ReadByte();
             point_size = reader.ReadUInt16();
