@@ -33,5 +33,20 @@ namespace Reading
                 }
             }
         }
+
+        [TestMethod]
+        public void RecordID()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                {
+                    for (int i = 0; i < info.VariableLengthRecords.Length; i++)
+                    {
+                        Assert.AreEqual(info.VariableLengthRecords[i].RecordID, lr.VariableLengthRecords[i].RecordID);
+                    }
+                }
+            }
+        }
     }
 }
