@@ -6,9 +6,10 @@ namespace streamlas
 {
     public class lasVariableLengthRecord
     {
-        public string UserID { get; private set; } = "";
+        public string UserID { get; private set; }
         public UInt16 RecordID { get; private set; }
-        public string Description { get; private set; } = "";
+        public string Description { get; private set; }
+        public byte[] Data { get; private set; }
 
         internal lasVariableLengthRecord(BinaryReader r)
         {
@@ -17,7 +18,7 @@ namespace streamlas
             RecordID = r.ReadUInt16();
             UInt16 length_after_header = r.ReadUInt16();
             Description = Encoding.UTF8.GetString(r.ReadBytes(32)).TrimEnd('\0');
-            r.ReadBytes(length_after_header);
+            Data = r.ReadBytes(length_after_header);
         }
     }
 }
