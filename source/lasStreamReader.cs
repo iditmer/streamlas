@@ -104,9 +104,10 @@ namespace streamlas
                 MinimumXYZ[i] = reader.ReadDouble();
             }
 
+            if (VersionMinor > 2) reader.ReadBytes(8);
             if (VersionMinor > 3)
             {
-                reader.ReadBytes(20);
+                reader.ReadBytes(12);
                 PointCount = reader.ReadUInt64();
                 for (int i = 0; i < 15; i++) NumberPointsByReturn[i] = reader.ReadUInt64();
 
@@ -124,6 +125,8 @@ namespace streamlas
                 PointCount = temp_count;
                 for (int i = 0; i < 5; i++) NumberPointsByReturn[i] = temp_counts_by_return[i];
             }
+
+            for (int i = 0; i < VariableLengthRecords.Length; i++) VariableLengthRecords[i] = new lasVariableLengthRecord(reader);
 
             reader.BaseStream.Position = offset_to_points;
             return lasStreamResult.OK;
