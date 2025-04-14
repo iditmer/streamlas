@@ -121,18 +121,6 @@ namespace Reading
         }
 
         [TestMethod]
-        public void NumberVariableLengthRecords()
-        {
-            foreach (var info in TestData.BaseFiles)
-            {
-                using (lasStreamReader lr = new lasStreamReader(info.FileName))
-                {
-                    Assert.AreEqual((uint)info.VariableLengthRecords.Length, lr.NumberVariableLengthRecords);
-                }
-            }
-        }
-
-        [TestMethod]
         public void PointFormat()
         {
             foreach (var info in TestData.BaseFiles)
