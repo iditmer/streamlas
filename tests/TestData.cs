@@ -18,6 +18,7 @@ namespace tests
         public bool HasTimestamps { get; set; }
         public bool AdjustedGPSTime { get; set; }
         public bool SyntheticReturns { get; set; }
+        public bool CRSisWKT { get; set; }
         public UInt32 GUID1 { get; set; }
         public UInt16 GUID2 { get; set; }
         public UInt16 GUID3 { get; set; }
@@ -32,6 +33,7 @@ namespace tests
         public double[] MinCoords { get; set; } = new double[3];
         public double[] MaxCoords { get; set; } = new double[3];
         public UInt64[] NumberPointsByReturn { get; set; } = new UInt64[15];
+        public VariableLengthRecord[] VariableLengthRecords { get; set; } = new VariableLengthRecord[1];
     }
 
     public class PointInfo
@@ -80,6 +82,15 @@ namespace tests
 
             return copy;
         }
+    }
+
+    public class VariableLengthRecord
+    {
+        public string UserID { get; set; } = "";
+        public ushort RecordID { get; set; }
+        public ushort RecordLength { get; set; }
+        public string Description { get; set; } = "";
+        public string DataString { get; set; } = "";
     }
 
     internal static class TestData

@@ -4,6 +4,7 @@
     "SourceID": 0,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": true,
     "GUID1": 1341685668,
     "GUID2": 10369,
@@ -24,12 +25,12 @@
     "FileCreationDay": 275,
     "FileCreationYear": 2014,
     "PointFormat": 0,
-    "PointCount": 14,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      7,
-      4,
-      0,
+      1,
+      1,
       3,
+      0,
       0,
       0,
       0,
@@ -43,14 +44,23 @@
       0
     ],
     "MinCoords": [
-      -4603966.155,
-      3841682.52,
-      -20876832.8375
+      -5965789.135,
+      3860944.5,
+      -21038601.0675
     ],
     "MaxCoords": [
-      3937326.6675,
-      13956247.0625,
-      -12415976.1375
+      3139944.015,
+      11492632.9825,
+      -11784208.915
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -58,6 +68,7 @@
     "SourceID": 0,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 1261327953,
     "GUID2": 34418,
@@ -78,12 +89,12 @@
     "FileCreationDay": 275,
     "FileCreationYear": 2014,
     "PointFormat": 0,
-    "PointCount": 14,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      7,
-      4,
-      0,
+      1,
+      1,
       3,
+      0,
       0,
       0,
       0,
@@ -97,14 +108,23 @@
       0
     ],
     "MinCoords": [
-      -4603966.155,
-      3841682.52,
-      -20876832.8375
+      -5965789.135,
+      3860944.5,
+      -21038601.0675
     ],
     "MaxCoords": [
-      3937326.6675,
-      13956247.0625,
-      -12415976.1375
+      3139944.015,
+      11492632.9825,
+      -11784208.915
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -112,6 +132,7 @@
     "SourceID": 0,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 2078730158,
     "GUID2": 51417,
@@ -132,12 +153,12 @@
     "FileCreationDay": 275,
     "FileCreationYear": 2014,
     "PointFormat": 0,
-    "PointCount": 14,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      7,
-      4,
-      0,
+      1,
+      1,
       3,
+      0,
       0,
       0,
       0,
@@ -151,14 +172,23 @@
       0
     ],
     "MinCoords": [
-      -4603966.155,
-      3841682.52,
-      -20876832.8375
+      -5965789.135,
+      3860944.5,
+      -21038601.0675
     ],
     "MaxCoords": [
-      3937326.6675,
-      13956247.0625,
-      -12415976.1375
+      3139944.015,
+      11492632.9825,
+      -11784208.915
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -166,6 +196,7 @@
     "SourceID": 0,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 1446810352,
     "GUID2": 38955,
@@ -186,12 +217,12 @@
     "FileCreationDay": 275,
     "FileCreationYear": 2014,
     "PointFormat": 0,
-    "PointCount": 14,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      7,
-      4,
-      0,
+      1,
+      1,
       3,
+      0,
       0,
       0,
       0,
@@ -205,14 +236,23 @@
       0
     ],
     "MinCoords": [
-      -4603966.155,
-      3841682.52,
-      -20876832.8375
+      -5965789.135,
+      3860944.5,
+      -21038601.0675
     ],
     "MaxCoords": [
-      3937326.6675,
-      13956247.0625,
-      -12415976.1375
+      3139944.015,
+      11492632.9825,
+      -11784208.915
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -220,6 +260,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 967749284,
     "GUID2": 27560,
@@ -240,12 +281,12 @@
     "FileCreationDay": 263,
     "FileCreationYear": 2012,
     "PointFormat": 1,
-    "PointCount": 5,
+    "PointCount": 13,
     "NumberPointsByReturn": [
-      1,
-      1,
-      1,
+      5,
       2,
+      5,
+      1,
       0,
       0,
       0,
@@ -259,14 +300,23 @@
       0
     ],
     "MinCoords": [
-      1479435.931,
-      -7872673.547,
-      10677716.312
+      1111532.809,
+      -8282270.126,
+      10670064.168
     ],
     "MaxCoords": [
-      2977019.577,
-      -4602725.318,
-      14314448.012
+      5076473.252,
+      -4178649.154,
+      13991793.953
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -274,6 +324,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 529251296,
     "GUID2": 29517,
@@ -294,12 +345,12 @@
     "FileCreationDay": 263,
     "FileCreationYear": 2012,
     "PointFormat": 1,
-    "PointCount": 5,
+    "PointCount": 13,
     "NumberPointsByReturn": [
-      1,
-      1,
-      1,
+      5,
       2,
+      5,
+      1,
       0,
       0,
       0,
@@ -313,14 +364,23 @@
       0
     ],
     "MinCoords": [
-      1479435.931,
-      -7872673.547,
-      10677716.312
+      1111532.809,
+      -8282270.126,
+      10670064.168
     ],
     "MaxCoords": [
-      2977019.577,
-      -4602725.318,
-      14314448.012
+      5076473.252,
+      -4178649.154,
+      13991793.953
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -328,6 +388,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 867799278,
     "GUID2": 13409,
@@ -348,12 +409,12 @@
     "FileCreationDay": 263,
     "FileCreationYear": 2012,
     "PointFormat": 1,
-    "PointCount": 5,
+    "PointCount": 13,
     "NumberPointsByReturn": [
-      1,
-      1,
-      1,
+      5,
       2,
+      5,
+      1,
       0,
       0,
       0,
@@ -367,14 +428,23 @@
       0
     ],
     "MinCoords": [
-      1479435.931,
-      -7872673.547,
-      10677716.312
+      1111532.809,
+      -8282270.126,
+      10670064.168
     ],
     "MaxCoords": [
-      2977019.577,
-      -4602725.318,
-      14314448.012
+      5076473.252,
+      -4178649.154,
+      13991793.953
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -382,6 +452,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 1701749024,
     "GUID2": 43378,
@@ -402,12 +473,12 @@
     "FileCreationDay": 263,
     "FileCreationYear": 2012,
     "PointFormat": 1,
-    "PointCount": 5,
+    "PointCount": 13,
     "NumberPointsByReturn": [
-      1,
-      1,
-      1,
+      5,
       2,
+      5,
+      1,
       0,
       0,
       0,
@@ -421,21 +492,31 @@
       0
     ],
     "MinCoords": [
-      1479435.931,
-      -7872673.547,
-      10677716.312
+      1111532.809,
+      -8282270.126,
+      10670064.168
     ],
     "MaxCoords": [
-      2977019.577,
-      -4602725.318,
-      14314448.012
+      5076473.252,
+      -4178649.154,
+      13991793.953
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
     "FileName": "LAS_12_PF_02.las",
-    "SourceID": 53,
+    "SourceID": 124,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 1935800839,
     "GUID2": 31409,
@@ -456,12 +537,12 @@
     "FileCreationDay": 345,
     "FileCreationYear": 2019,
     "PointFormat": 2,
-    "PointCount": 5,
+    "PointCount": 8,
     "NumberPointsByReturn": [
-      0,
-      0,
+      1,
       3,
-      2,
+      1,
+      3,
       0,
       0,
       0,
@@ -475,21 +556,31 @@
       0
     ],
     "MinCoords": [
-      -11305209.45,
-      16330450.275,
-      499548.533
+      -11174974.501,
+      16874533.205,
+      266301.506
     ],
     "MaxCoords": [
-      -8795133.811,
-      18007793.365,
-      4014032.915
+      -7175331.32,
+      20458163.608,
+      4037338.257
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
     "FileName": "LAS_13_PF_02.las",
-    "SourceID": 53,
+    "SourceID": 124,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 395558988,
     "GUID2": 8701,
@@ -510,12 +601,12 @@
     "FileCreationDay": 345,
     "FileCreationYear": 2019,
     "PointFormat": 2,
-    "PointCount": 5,
+    "PointCount": 8,
     "NumberPointsByReturn": [
-      0,
-      0,
+      1,
       3,
-      2,
+      1,
+      3,
       0,
       0,
       0,
@@ -529,21 +620,31 @@
       0
     ],
     "MinCoords": [
-      -11305209.45,
-      16330450.275,
-      499548.533
+      -11174974.501,
+      16874533.205,
+      266301.506
     ],
     "MaxCoords": [
-      -8795133.811,
-      18007793.365,
-      4014032.915
+      -7175331.32,
+      20458163.608,
+      4037338.257
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_02.las",
-    "SourceID": 53,
+    "SourceID": 124,
     "HasTimestamps": false,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": true,
     "GUID1": 248611234,
     "GUID2": 20956,
@@ -564,12 +665,12 @@
     "FileCreationDay": 345,
     "FileCreationYear": 2019,
     "PointFormat": 2,
-    "PointCount": 5,
+    "PointCount": 8,
     "NumberPointsByReturn": [
-      0,
-      0,
+      1,
       3,
-      2,
+      1,
+      3,
       0,
       0,
       0,
@@ -583,14 +684,23 @@
       0
     ],
     "MinCoords": [
-      -11305209.45,
-      16330450.275,
-      499548.533
+      -11174974.501,
+      16874533.205,
+      266301.506
     ],
     "MaxCoords": [
-      -8795133.811,
-      18007793.365,
-      4014032.915
+      -7175331.32,
+      20458163.608,
+      4037338.257
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -598,6 +708,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 1174239111,
     "GUID2": 30867,
@@ -618,12 +729,12 @@
     "FileCreationDay": 270,
     "FileCreationYear": 2017,
     "PointFormat": 3,
-    "PointCount": 12,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      3,
-      3,
-      4,
       2,
+      2,
+      0,
+      1,
       0,
       0,
       0,
@@ -637,14 +748,23 @@
       0
     ],
     "MinCoords": [
-      -7510883.125,
-      269784.795,
-      -3939830.345
+      -7056043.01,
+      230859.85,
+      1725303.245
     ],
     "MaxCoords": [
-      7169723.295,
-      20327289.27,
-      15232019.085
+      8463383.725,
+      15108526.515,
+      15853065.975
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -652,6 +772,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 107442163,
     "GUID2": 51371,
@@ -672,12 +793,12 @@
     "FileCreationDay": 270,
     "FileCreationYear": 2017,
     "PointFormat": 3,
-    "PointCount": 12,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      3,
-      3,
-      4,
       2,
+      2,
+      0,
+      1,
       0,
       0,
       0,
@@ -691,14 +812,23 @@
       0
     ],
     "MinCoords": [
-      -7510883.125,
-      269784.795,
-      -3939830.345
+      -7056043.01,
+      230859.85,
+      1725303.245
     ],
     "MaxCoords": [
-      7169723.295,
-      20327289.27,
-      15232019.085
+      8463383.725,
+      15108526.515,
+      15853065.975
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
@@ -706,6 +836,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": true,
     "GUID1": 1025068334,
     "GUID2": 38660,
@@ -726,12 +857,12 @@
     "FileCreationDay": 270,
     "FileCreationYear": 2017,
     "PointFormat": 3,
-    "PointCount": 12,
+    "PointCount": 5,
     "NumberPointsByReturn": [
-      3,
-      3,
-      4,
       2,
+      2,
+      0,
+      1,
       0,
       0,
       0,
@@ -745,21 +876,31 @@
       0
     ],
     "MinCoords": [
-      -7510883.125,
-      269784.795,
-      -3939830.345
+      -7056043.01,
+      230859.85,
+      1725303.245
     ],
     "MaxCoords": [
-      7169723.295,
-      20327289.27,
-      15232019.085
+      8463383.725,
+      15108526.515,
+      15853065.975
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      }
     ]
   },
   {
     "FileName": "LAS_13_PF_04.las",
-    "SourceID": 13,
+    "SourceID": 70,
     "HasTimestamps": true,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 898583794,
     "GUID2": 64754,
@@ -780,12 +921,12 @@
     "FileCreationDay": 247,
     "FileCreationYear": 2015,
     "PointFormat": 4,
-    "PointCount": 7,
+    "PointCount": 12,
     "NumberPointsByReturn": [
+      6,
+      3,
       0,
       3,
-      3,
-      1,
       0,
       0,
       0,
@@ -799,21 +940,52 @@
       0
     ],
     "MinCoords": [
-      9066676.105,
-      15119941.261,
-      14580962.138
+      8328956.649,
+      14872854.595,
+      14418470.509
     ],
     "MaxCoords": [
-      11909371.269,
-      18354043.859,
-      18032583.837
+      11557518.787,
+      18929663.118,
+      18331636.403
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_04.las",
-    "SourceID": 13,
+    "SourceID": 70,
     "HasTimestamps": true,
     "AdjustedGPSTime": false,
+    "CRSisWKT": false,
     "SyntheticReturns": true,
     "GUID1": 1815558466,
     "GUID2": 10164,
@@ -834,12 +1006,12 @@
     "FileCreationDay": 247,
     "FileCreationYear": 2015,
     "PointFormat": 4,
-    "PointCount": 7,
+    "PointCount": 12,
     "NumberPointsByReturn": [
+      6,
+      3,
       0,
       3,
-      3,
-      1,
       0,
       0,
       0,
@@ -853,21 +1025,52 @@
       0
     ],
     "MinCoords": [
-      9066676.105,
-      15119941.261,
-      14580962.138
+      8328956.649,
+      14872854.595,
+      14418470.509
     ],
     "MaxCoords": [
-      11909371.269,
-      18354043.859,
-      18032583.837
+      11557518.787,
+      18929663.118,
+      18331636.403
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000\uFFFDd\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_13_PF_05.las",
-    "SourceID": 11,
+    "SourceID": 48,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": true,
     "GUID1": 1762040046,
     "GUID2": 20028,
@@ -890,10 +1093,10 @@
     "PointFormat": 5,
     "PointCount": 9,
     "NumberPointsByReturn": [
-      3,
-      3,
-      1,
       2,
+      2,
+      4,
+      1,
       0,
       0,
       0,
@@ -907,21 +1110,52 @@
       0
     ],
     "MinCoords": [
-      -18403280.4,
-      -9065063.795,
-      -25379116.69
+      -18596887.015,
+      -10118792.12,
+      -23249227.455
     ],
     "MaxCoords": [
-      796527.195,
-      9660975.73,
-      -5614653.23
+      1374552.915,
+      7315289.025,
+      -13119395.24
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_05.las",
-    "SourceID": 11,
+    "SourceID": 48,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": false,
     "SyntheticReturns": false,
     "GUID1": 2013016780,
     "GUID2": 5278,
@@ -944,10 +1178,10 @@
     "PointFormat": 5,
     "PointCount": 9,
     "NumberPointsByReturn": [
-      3,
-      3,
-      1,
       2,
+      2,
+      4,
+      1,
       0,
       0,
       0,
@@ -961,21 +1195,52 @@
       0
     ],
     "MinCoords": [
-      -18403280.4,
-      -9065063.795,
-      -25379116.69
+      -18596887.015,
+      -10118792.12,
+      -23249227.455
     ],
     "MaxCoords": [
-      796527.195,
-      9660975.73,
-      -5614653.23
+      1374552.915,
+      7315289.025,
+      -13119395.24
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 34735,
+        "RecordLength": 40,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "\u0001\u0000\u0001\u0000\u0000\u0000\u0004\u0000\u0000\u0004\u0000\u0000\u0001\u0000\u0001\u0000\u0000\f\u0000\u0000\u0001\u0000$i\u0004\f\u0000\u0000\u0001\u0000)#\u0003\u0010\u0000\u0000\u0001\u0000)#"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_06.las",
-    "SourceID": 79,
+    "SourceID": 32,
     "HasTimestamps": true,
     "AdjustedGPSTime": false,
+    "CRSisWKT": true,
     "SyntheticReturns": false,
     "GUID1": 888488443,
     "GUID2": 2954,
@@ -996,40 +1261,50 @@
     "FileCreationDay": 307,
     "FileCreationYear": 2019,
     "PointFormat": 6,
-    "PointCount": 11,
+    "PointCount": 8,
     "NumberPointsByReturn": [
-      0,
-      1,
-      1,
-      0,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      0,
       2,
       0,
+      0,
       1,
+      2,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
       0
     ],
     "MinCoords": [
-      5842092.2275,
-      -975017.87,
-      -21982719.335
+      7147423.2075,
+      -1561753.97,
+      -22301036.9675
     ],
     "MaxCoords": [
-      15717083.67,
-      6383554.4075,
-      -12530575.905
+      16269702.875,
+      5899429.53,
+      -12766738.8475
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 2112,
+        "RecordLength": 634,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "PROJCS[\u0022ETRS89 / UTM zone 31N\u0022,GEOGCS[\u0022ETRS89\u0022,DATUM[\u0022European_Terrestrial_Reference_System_1989\u0022,SPHEROID[\u0022GRS 1980\u0022,6378137,298.257222101,AUTHORITY[\u0022EPSG\u0022,\u00227019\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00226258\u0022]],PRIMEM[\u0022Greenwich\u0022,0,AUTHORITY[\u0022EPSG\u0022,\u00228901\u0022]],UNIT[\u0022degree\u0022,0.01745329251994328,AUTHORITY[\u0022EPSG\u0022,\u00229122\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00224258\u0022]],PROJECTION[\u0022Transverse_Mercator\u0022],PARAMETER[\u0022latitude_of_origin\u0022,0],PARAMETER[\u0022central_meridian\u0022,3],PARAMETER[\u0022scale_factor\u0022,0.9996],PARAMETER[\u0022false_easting\u0022,500000],PARAMETER[\u0022false_northing\u0022,0],UNIT[\u0022metre\u0022,1,AUTHORITY[\u0022EPSG\u0022,\u00229001\u0022]],AXIS[\u0022Easting\u0022,EAST],AXIS[\u0022Northing\u0022,NORTH],AUTHORITY[\u0022EPSG\u0022,\u002225831\u0022]]\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_07.las",
-    "SourceID": 9,
+    "SourceID": 117,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": true,
     "SyntheticReturns": true,
     "GUID1": 2062290852,
     "GUID2": 9743,
@@ -1050,33 +1325,42 @@
     "FileCreationDay": 342,
     "FileCreationYear": 2022,
     "PointFormat": 7,
-    "PointCount": 9,
+    "PointCount": 6,
     "NumberPointsByReturn": [
-      1,
-      1,
-      2,
       0,
       0,
       1,
       1,
       1,
+      0,
+      0,
+      0,
       1,
       0,
-      0,
+      1,
       0,
       1,
       0,
       0
     ],
     "MinCoords": [
-      -36930527.77,
-      -4315315.07,
-      -19161391.47
+      -37603025.5,
+      -2737479.81,
+      -20729322.57
     ],
     "MaxCoords": [
-      -8701468.28,
-      17825131.26,
-      17424220.43
+      -2157845.03,
+      31814899.4,
+      14229915.32
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 2112,
+        "RecordLength": 617,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "PROJCS[\u0022NAD83 / UTM zone 16N\u0022,GEOGCS[\u0022NAD83\u0022,DATUM[\u0022North_American_Datum_1983\u0022,SPHEROID[\u0022GRS 1980\u0022,6378137,298.257222101,AUTHORITY[\u0022EPSG\u0022,\u00227019\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00226269\u0022]],PRIMEM[\u0022Greenwich\u0022,0,AUTHORITY[\u0022EPSG\u0022,\u00228901\u0022]],UNIT[\u0022degree\u0022,0.01745329251994328,AUTHORITY[\u0022EPSG\u0022,\u00229122\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00224269\u0022]],PROJECTION[\u0022Transverse_Mercator\u0022],PARAMETER[\u0022latitude_of_origin\u0022,0],PARAMETER[\u0022central_meridian\u0022,-87],PARAMETER[\u0022scale_factor\u0022,0.9996],PARAMETER[\u0022false_easting\u0022,500000],PARAMETER[\u0022false_northing\u0022,0],UNIT[\u0022metre\u0022,1,AUTHORITY[\u0022EPSG\u0022,\u00229001\u0022]],AXIS[\u0022Easting\u0022,EAST],AXIS[\u0022Northing\u0022,NORTH],AUTHORITY[\u0022EPSG\u0022,\u002226916\u0022]]\u0000"
+      }
     ]
   },
   {
@@ -1084,6 +1368,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": false,
+    "CRSisWKT": true,
     "SyntheticReturns": false,
     "GUID1": 1878637497,
     "GUID2": 24363,
@@ -1104,33 +1389,42 @@
     "FileCreationDay": 220,
     "FileCreationYear": 2007,
     "PointFormat": 8,
-    "PointCount": 13,
+    "PointCount": 9,
     "NumberPointsByReturn": [
       1,
-      2,
       0,
-      1,
-      1,
-      2,
-      1,
       0,
-      1,
+      2,
       0,
       2,
       1,
       0,
+      0,
+      0,
       1,
+      2,
+      0,
+      0,
       0
     ],
     "MinCoords": [
-      -15965022.365,
-      -3588318.615,
-      -5803566.03
+      -15719875.965,
+      -1441682.77,
+      -4358305.095
     ],
     "MaxCoords": [
-      1247431.48,
-      13002413.365,
-      9503290.625
+      1869615.665,
+      12558487.5,
+      6714594.35
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 2112,
+        "RecordLength": 634,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "PROJCS[\u0022ETRS89 / UTM zone 31N\u0022,GEOGCS[\u0022ETRS89\u0022,DATUM[\u0022European_Terrestrial_Reference_System_1989\u0022,SPHEROID[\u0022GRS 1980\u0022,6378137,298.257222101,AUTHORITY[\u0022EPSG\u0022,\u00227019\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00226258\u0022]],PRIMEM[\u0022Greenwich\u0022,0,AUTHORITY[\u0022EPSG\u0022,\u00228901\u0022]],UNIT[\u0022degree\u0022,0.01745329251994328,AUTHORITY[\u0022EPSG\u0022,\u00229122\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00224258\u0022]],PROJECTION[\u0022Transverse_Mercator\u0022],PARAMETER[\u0022latitude_of_origin\u0022,0],PARAMETER[\u0022central_meridian\u0022,3],PARAMETER[\u0022scale_factor\u0022,0.9996],PARAMETER[\u0022false_easting\u0022,500000],PARAMETER[\u0022false_northing\u0022,0],UNIT[\u0022metre\u0022,1,AUTHORITY[\u0022EPSG\u0022,\u00229001\u0022]],AXIS[\u0022Easting\u0022,EAST],AXIS[\u0022Northing\u0022,NORTH],AUTHORITY[\u0022EPSG\u0022,\u002225831\u0022]]\u0000"
+      }
     ]
   },
   {
@@ -1138,6 +1432,7 @@
     "SourceID": 0,
     "HasTimestamps": true,
     "AdjustedGPSTime": true,
+    "CRSisWKT": true,
     "SyntheticReturns": false,
     "GUID1": 2000368168,
     "GUID2": 29309,
@@ -1158,40 +1453,71 @@
     "FileCreationDay": 256,
     "FileCreationYear": 2010,
     "PointFormat": 9,
-    "PointCount": 9,
+    "PointCount": 7,
     "NumberPointsByReturn": [
-      1,
       0,
-      1,
-      0,
-      0,
-      1,
-      1,
-      0,
-      1,
-      1,
       2,
+      2,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
       1,
       0,
       0,
       0
     ],
     "MinCoords": [
-      -16207486.779,
-      14774044.051,
-      -16490101.681
+      -15717757.157,
+      14929450.895,
+      -16841811.457
     ],
     "MaxCoords": [
-      -12360161.512,
-      17389521.221,
-      -13799132.72
+      -13056720.754,
+      17891551.992,
+      -13852482.483
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 2112,
+        "RecordLength": 617,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "PROJCS[\u0022NAD83 / UTM zone 16N\u0022,GEOGCS[\u0022NAD83\u0022,DATUM[\u0022North_American_Datum_1983\u0022,SPHEROID[\u0022GRS 1980\u0022,6378137,298.257222101,AUTHORITY[\u0022EPSG\u0022,\u00227019\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00226269\u0022]],PRIMEM[\u0022Greenwich\u0022,0,AUTHORITY[\u0022EPSG\u0022,\u00228901\u0022]],UNIT[\u0022degree\u0022,0.01745329251994328,AUTHORITY[\u0022EPSG\u0022,\u00229122\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00224269\u0022]],PROJECTION[\u0022Transverse_Mercator\u0022],PARAMETER[\u0022latitude_of_origin\u0022,0],PARAMETER[\u0022central_meridian\u0022,-87],PARAMETER[\u0022scale_factor\u0022,0.9996],PARAMETER[\u0022false_easting\u0022,500000],PARAMETER[\u0022false_northing\u0022,0],UNIT[\u0022metre\u0022,1,AUTHORITY[\u0022EPSG\u0022,\u00229001\u0022]],AXIS[\u0022Easting\u0022,EAST],AXIS[\u0022Northing\u0022,NORTH],AUTHORITY[\u0022EPSG\u0022,\u002226916\u0022]]\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   },
   {
     "FileName": "LAS_14_PF_10.las",
-    "SourceID": 121,
+    "SourceID": 48,
     "HasTimestamps": true,
     "AdjustedGPSTime": false,
+    "CRSisWKT": true,
     "SyntheticReturns": false,
     "GUID1": 1972836811,
     "GUID2": 57814,
@@ -1212,33 +1538,63 @@
     "FileCreationDay": 125,
     "FileCreationYear": 2010,
     "PointFormat": 10,
-    "PointCount": 5,
+    "PointCount": 7,
     "NumberPointsByReturn": [
-      1,
-      0,
-      1,
-      0,
-      0,
       0,
       0,
       0,
       2,
       0,
       0,
+      1,
+      1,
+      1,
+      0,
+      1,
       0,
       0,
       1,
       0
     ],
     "MinCoords": [
-      8656324.09,
-      -12657538.805,
-      -2371913.285
+      -5669.61,
+      -12804186.745,
+      -4576300.33
     ],
     "MaxCoords": [
-      15816588.945,
-      417622.17,
-      6529723.985
+      17116648.46,
+      -50619.795,
+      12974288.555
+    ],
+    "VariableLengthRecords": [
+      {
+        "UserID": "LASF_Projection",
+        "RecordID": 2112,
+        "RecordLength": 634,
+        "Description": "by LAStools of rapidlasso GmbH",
+        "DataString": "PROJCS[\u0022ETRS89 / UTM zone 31N\u0022,GEOGCS[\u0022ETRS89\u0022,DATUM[\u0022European_Terrestrial_Reference_System_1989\u0022,SPHEROID[\u0022GRS 1980\u0022,6378137,298.257222101,AUTHORITY[\u0022EPSG\u0022,\u00227019\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00226258\u0022]],PRIMEM[\u0022Greenwich\u0022,0,AUTHORITY[\u0022EPSG\u0022,\u00228901\u0022]],UNIT[\u0022degree\u0022,0.01745329251994328,AUTHORITY[\u0022EPSG\u0022,\u00229122\u0022]],AUTHORITY[\u0022EPSG\u0022,\u00224258\u0022]],PROJECTION[\u0022Transverse_Mercator\u0022],PARAMETER[\u0022latitude_of_origin\u0022,0],PARAMETER[\u0022central_meridian\u0022,3],PARAMETER[\u0022scale_factor\u0022,0.9996],PARAMETER[\u0022false_easting\u0022,500000],PARAMETER[\u0022false_northing\u0022,0],UNIT[\u0022metre\u0022,1,AUTHORITY[\u0022EPSG\u0022,\u00229001\u0022]],AXIS[\u0022Easting\u0022,EAST],AXIS[\u0022Northing\u0022,NORTH],AUTHORITY[\u0022EPSG\u0022,\u002225831\u0022]]\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 100,
+        "RecordLength": 26,
+        "Description": "WPD#1",
+        "DataString": "\u0010\u0000\u003C\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 101,
+        "RecordLength": 26,
+        "Description": "WPD#2",
+        "DataString": "\u0010\u0000x\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      },
+      {
+        "UserID": "LASF_Spec",
+        "RecordID": 102,
+        "RecordLength": 26,
+        "Description": "WPD#3",
+        "DataString": "\u0010\u0000\uFFFD\u0000\u0000\u0000\uFFFD\u0003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\uFFFD?\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+      }
     ]
   }
 ]
