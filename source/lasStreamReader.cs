@@ -17,6 +17,7 @@ namespace streamlas
         public bool HasTimestamps { get { return PointFormat != 0 && PointFormat != 2; } }
         public bool AdjustedGPSTime { get { return (global_encoding & 1) == 1; } }
         public bool SyntheticReturns { get { return (global_encoding & 8) == 8; } }
+        public bool SpatialReferenceIsWKT { get { return (global_encoding & 16) == 16; } }
         
         public UInt32 GUID1 { get; private set; }
         public UInt16 GUID2 { get; private set; }
