@@ -20,5 +20,22 @@ namespace streamlas
             Description = Encoding.UTF8.GetString(r.ReadBytes(32)).TrimEnd('\0');
             Data = r.ReadBytes(length_after_header);
         }
+
+        internal void Write(BinaryWriter w)
+        {
+            w.Write((byte)0);
+            w.Write((byte)0);
+
+            for (int i = 0; i < Math.Min(16, UserID.Length); i++) w.Write(Convert.ToByte(UserID[i]));
+            if (UserID.Length < 16) for (int i = 0; i < 16 - UserID.Length; i++) w.Write((byte)0);
+
+            w.Write(RecordID);
+            w.Write((UInt16)Data.Length);
+
+            for (int i = 0; i < Math.Min(32, Description.Length); i++) w.Write(Convert.ToByte(Description[i]));
+            if (Description.Length < 32) for (int i = 0; i < 32 - Description.Length; i++) w.Write((byte)0);
+
+            w.Write(Data);
+        }
     }
 }

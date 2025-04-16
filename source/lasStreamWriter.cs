@@ -73,9 +73,12 @@ namespace streamlas
             writer.Write((UInt16)DateTime.Now.Year);
 
             writer.Write(lasConstants.HeaderSize[reader.VersionMinor - 1]);
-            writer.Write((UInt32)lasConstants.HeaderSize[reader.VersionMinor - 1]);
+            
+            UInt32 offset_to_pts = lasConstants.HeaderSize[reader.VersionMinor - 1];
+            foreach (lasVariableLengthRecord v in reader.VariableLengthRecords) offset_to_pts += (uint)(54 + v.Data.Length);
+            writer.Write(offset_to_pts);
+            writer.Write((uint)reader.VariableLengthRecords.Length);
 
-            for (int i = 0; i < 4; i++) writer.Write((byte)0);
             writer.Write(point.format);
             writer.Write((UInt16)point.raw_data.Length);
 
@@ -83,7 +86,9 @@ namespace streamlas
             for (int i = 0; i < 3; i++) writer.Write(reader.scale[i]);
             for (int i = 0; i < 3; i++) writer.Write(reader.offset[i]);
 
+            // advance to end of header; point counts updated on disposal
             while (writer.BaseStream.Position != lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
+            foreach (lasVariableLengthRecord v in reader.VariableLengthRecords) v.Write(writer);
         }
 
         public void WritePoint(lasPointRecord point)
