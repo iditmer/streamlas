@@ -66,7 +66,7 @@ namespace streamlas
             // write SYSTEM IDENTIFIER on disposal to allow changes
             while (writer.BaseStream.Position < 58) writer.Write('\0');
 
-            writer.Write(Encoding.ASCII.GetBytes("streamlas - .NET LAS IO Library"));
+            writer.Write(Encoding.ASCII.GetBytes("streamlas"));
             while (writer.BaseStream.Position < 90) writer.Write('\0');
 
             writer.Write((UInt16)DateTime.Now.DayOfYear);
@@ -86,7 +86,7 @@ namespace streamlas
             while (writer.BaseStream.Position != lasConstants.HeaderSize[reader.VersionMinor - 1]) writer.Write((byte)0);
         }
 
-        public unsafe void WritePoint(lasPointRecord point)
+        public void WritePoint(lasPointRecord point)
         {
             count++;
             return_counts[point.ReturnNumber - 1]++;
