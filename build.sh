@@ -1,0 +1,1 @@
+dotnet build streamlas.sln -c "Release"
