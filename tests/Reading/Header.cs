@@ -109,6 +109,18 @@ namespace Reading
         }
 
         [TestMethod]
+        public void SpatialReferenceWKT()
+        {
+            foreach (var info in TestData.BaseFiles)
+            {
+                using (lasStreamReader lr = new lasStreamReader(info.FileName))
+                {
+                    Assert.AreEqual(info.CRSisWKT, lr.SpatialReferenceIsWKT);
+                }
+            }
+        }
+
+        [TestMethod]
         public void PointFormat()
         {
             foreach (var info in TestData.BaseFiles)

@@ -17,6 +17,7 @@ namespace streamlas
         public bool HasTimestamps { get { return PointFormat != 0 && PointFormat != 2; } }
         public bool AdjustedGPSTime { get { return (global_encoding & 1) == 1; } }
         public bool SyntheticReturns { get { return (global_encoding & 8) == 8; } }
+        public bool SpatialReferenceIsWKT { get { return (global_encoding & 16) == 16; } }
         
         public UInt32 GUID1 { get; private set; }
         public UInt16 GUID2 { get; private set; }
@@ -34,7 +35,7 @@ namespace streamlas
 
         private UInt16 header_size;
         private UInt32 offset_to_points;
-                
+
         public byte PointFormat { get; private set; }
         internal UInt16 point_size;
         public UInt64 PointCount { get; private set; }
@@ -45,6 +46,8 @@ namespace streamlas
 
         public double[] MinimumXYZ { get; private set; } = new double[3];
         public double[] MaximumXYZ { get; private set; } = new double[3];
+
+        public lasVariableLengthRecord[] VariableLengthRecords { get; private set; } = Array.Empty<lasVariableLengthRecord>();
 
         public lasStreamReader(string las_path)
         {
@@ -77,7 +80,8 @@ namespace streamlas
 
             header_size = reader.ReadUInt16();
             offset_to_points = reader.ReadUInt32();
-            reader.ReadBytes(4);
+            int num_vlrs = (int)reader.ReadUInt32();
+            if (num_vlrs > 0) VariableLengthRecords = new lasVariableLengthRecord[num_vlrs];
 
             PointFormat = reader.ReadByte();
             point_size = reader.ReadUInt16();
@@ -101,9 +105,10 @@ namespace streamlas
                 MinimumXYZ[i] = reader.ReadDouble();
             }
 
+            if (VersionMinor > 2) reader.ReadBytes(8);
             if (VersionMinor > 3)
             {
-                reader.ReadBytes(20);
+                reader.ReadBytes(12);
                 PointCount = reader.ReadUInt64();
                 for (int i = 0; i < 15; i++) NumberPointsByReturn[i] = reader.ReadUInt64();
 
@@ -121,6 +126,8 @@ namespace streamlas
                 PointCount = temp_count;
                 for (int i = 0; i < 5; i++) NumberPointsByReturn[i] = temp_counts_by_return[i];
             }
+
+            for (int i = 0; i < num_vlrs; i++) VariableLengthRecords[i] = new lasVariableLengthRecord(reader);
 
             reader.BaseStream.Position = offset_to_points;
             return lasStreamResult.OK;

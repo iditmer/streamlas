@@ -59,7 +59,7 @@ namespace Writing
                 string in_path = TestData.WriteTestPath(info);
                 using (lasStreamReader lr = new lasStreamReader(in_path))
                 {
-                    Assert.AreEqual("streamlas - .NET LAS IO Library", lr.GeneratingSoftware);
+                    Assert.AreEqual("streamlas", lr.GeneratingSoftware);
                 }
             }
         }
