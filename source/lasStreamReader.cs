@@ -47,7 +47,7 @@ namespace streamlas
         public double[] MinimumXYZ { get; private set; } = new double[3];
         public double[] MaximumXYZ { get; private set; } = new double[3];
 
-        public lasVariableLengthRecord[] VariableLengthRecords { get; private set; } = new lasVariableLengthRecord[1];
+        public lasVariableLengthRecord[] VariableLengthRecords { get; private set; } = Array.Empty<lasVariableLengthRecord>();
 
         public lasStreamReader(string las_path)
         {
@@ -80,7 +80,8 @@ namespace streamlas
 
             header_size = reader.ReadUInt16();
             offset_to_points = reader.ReadUInt32();
-            VariableLengthRecords = new lasVariableLengthRecord[(int)reader.ReadUInt32()];
+            int num_vlrs = (int)reader.ReadUInt32();
+            if (num_vlrs > 0) VariableLengthRecords = new lasVariableLengthRecord[num_vlrs];
 
             PointFormat = reader.ReadByte();
             point_size = reader.ReadUInt16();
@@ -126,7 +127,7 @@ namespace streamlas
                 for (int i = 0; i < 5; i++) NumberPointsByReturn[i] = temp_counts_by_return[i];
             }
 
-            for (int i = 0; i < VariableLengthRecords.Length; i++) VariableLengthRecords[i] = new lasVariableLengthRecord(reader);
+            for (int i = 0; i < num_vlrs; i++) VariableLengthRecords[i] = new lasVariableLengthRecord(reader);
 
             reader.BaseStream.Position = offset_to_points;
             return lasStreamResult.OK;
